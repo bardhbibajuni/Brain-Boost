@@ -7,6 +7,7 @@
     <title>Brain Boost - Learn. Play.</title>
     <link href="style.css" rel="stylesheet" />
 
+
     <style>
         .scanlines::before {
             display: none !important;
@@ -208,7 +209,8 @@
         <div class="contact-container">
             <div class="section-header">
                 <h2 class="section-title">Apply as a Student</h2>
-                <p class="section-subtitle">Formulari për UP.</p>
+              <p class="section-subtitle">Application form for UP.</p>
+
             </div>
 
             <!-- forma -->
@@ -231,9 +233,11 @@
                                 required>
                         </div>
 
+                        
                         <div class="form-group form-group--full">
                             <label for="fakulteti">Faculty *</label>
 
+                        
                             <div class="custom-select" data-target="fakulteti">
                                 <button type="button" class="custom-select__button" id="fakultetiButton">
                                     <span class="custom-select__label">Choose a faculty</span>
@@ -242,6 +246,7 @@
                                 <ul class="custom-select__menu"></ul>
                             </div>
 
+                      
                             <select id="fakulteti" name="fakulteti" class="sr-only" required>
                                 <option value="" disabled selected>Choose a faculty</option>
                                 <option>Faculty of Electrical & Computer Engineering</option>
@@ -274,7 +279,50 @@
         </div>
     </section>
 
-    <!-- TODO: footeri -->
+    <!-- footeri -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-cols">
+         
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="#top">Home</a></li>
+                        <li><a href="#games">Games</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#contact">Apply</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Learn Faster</h4>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/docs/Web/JavaScript" target="_blank">MDN JS</a></li>
+                        <li><a href="https://react.dev/learn" target="_blank">React Docs</a></li>
+                        <li><a href="https://www.python.org/doc/" target="_blank">Python Docs</a></li>
+                        <li><a href="https://dev.mysql.com/doc/" target="_blank">MySQL Docs</a></li>
+                    </ul>
+                </div>
+
+          
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="mailto:support@brainboost.app">Email Support</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#courses">Course Guides</a></li>
+                        <li><a href="#games">Game Tips</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Brain Boost</p>
+                <p class="footer-credit">Built for learners and gamers.</p>
+            </div>
+        </div>
+    </footer>
+
 
     <script src="globe.js"></script>
 </body>
