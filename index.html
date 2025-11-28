@@ -164,8 +164,119 @@
         </div>
     </section>
 
-    <!-- TODO: sektori i kurseve, aplikimi, footeri vijn ma von -->
+    <!-- sektori i kurseve -->
+    <section class="pricing fade-up" id="courses">
+        <div class="section-header">
+            <h2 class="section-title">Courses Library</h2>
+            <p class="section-subtitle">Roadmaps, mini projects — gjithçka për me mësu coding.</p>
+        </div>
 
+        <div class="stats-container">
+            <div class="stats-grid">
+                <!-- 3d globe -->
+                <div class="stat-item">
+                    <script src="https://cdn.jsdelivr.net/npm/TagCloud@2.2.0/dist/TagCloud.min.js"></script>
+                    <span class="content"></span>
+                </div>
+
+                <div class="stat-item">
+                    <div class="course-guide">
+                        <h3>How to use these courses</h3>
+                        <p>Fillimisht zgjedhe një gjuhë në glob.</p>
+
+                        <ul class="guide-list">
+                            <li>Basics e gjuhës</li>
+                            <li>Ushtrime praktike</li>
+                            <li>Mini projekte</li>
+                            <li>Quiz-e</li>
+                            <li>Cheat-sheets</li>
+                        </ul>
+
+                        <p class="guide-tip">
+                            Tip: kombino një kurs me një lojë ditore.
+                        </p>
+
+                        <a href="#contact" class="btn-secondary">Apply as a Student</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- aplikimi -->
+    <section class="contact fade-up" id="contact">
+        <div class="contact-container">
+            <div class="section-header">
+                <h2 class="section-title">Apply as a Student</h2>
+                <p class="section-subtitle">Formulari për UP.</p>
+            </div>
+
+            <!-- forma -->
+            <div class="contact-form-wrapper">
+                <form class="contact-form" id="studentApplicationForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="studentId">Student ID *</label>
+                            <input type="text" id="studentId" name="studentId" placeholder="240756100777" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                        </div>
+
+                        <div class="form-group form-group--full">
+                            <label for="email">Student Email *</label>
+                            <input type="email" id="email" name="email" placeholder="example@student.uni-pr.edu"
+                                required>
+                        </div>
+
+                        <div class="form-group form-group--full">
+                            <label for="fakulteti">Faculty *</label>
+
+                            <div class="custom-select" data-target="fakulteti">
+                                <button type="button" class="custom-select__button" id="fakultetiButton">
+                                    <span class="custom-select__label">Choose a faculty</span>
+                                    <span class="custom-select__icon">▾</span>
+                                </button>
+                                <ul class="custom-select__menu"></ul>
+                            </div>
+
+                            <select id="fakulteti" name="fakulteti" class="sr-only" required>
+                                <option value="" disabled selected>Choose a faculty</option>
+                                <option>Faculty of Electrical & Computer Engineering</option>
+                                <option>Faculty of Mathematical & Natural Sciences</option>
+                                <option>Faculty of Mechanical Engineering</option>
+                                <option>Faculty of Economics</option>
+                                <option>Faculty of Philology</option>
+                                <option>Faculty of Arts</option>
+                                <option>Faculty of Law</option>
+                                <option>Faculty of Civil Engineering & Architecture</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group form-group--full">
+                            <label for="drejtimi">Program *</label>
+                            <input type="text" id="drejtimi" name="drejtimi" placeholder="Computer Engineering"
+                                required>
+                        </div>
+
+                        <div class="form-group form-group--full">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Opsionale..."></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-submit">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- TODO: footeri -->
+
+    <script src="globe.js"></script>
 </body>
 
 </html>
