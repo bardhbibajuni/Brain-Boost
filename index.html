@@ -1,13 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brain Boost - Learn. Play.</title>
+    <link href="style.css" rel="stylesheet" />
+
+    <style>
+        .scanlines::before {
+            display: none !important;
+        }
+    </style>
 </head>
-<body>
-    <p>Hello World</p>
-    
+
+<body id="top">
+    <!-- backgroundi -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+    </div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- navigacioni -->
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#games">Games</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#contact">Apply</a></li>
+            </ul>
+
+            <a href="#top" class="logo">Brain Boost</a>
+
+            <div class="nav-bottom">
+                <a href="#courses" class="btn-secondary">Access Courses</a>
+            </div>
+
+            <!--phone menu button -->
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- menu - telefon -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="#top" class="mobile-menu-logo">Brain Boost</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+        </div>
+
+        <div class="mobile-menu-cta">
+            <a href="#courses" class="cyber-button">Access Courses</a>
+        </div>
+
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#contact">Apply</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- sektori i pare -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1 class="hero-title">
+                <span class="hero-nexus">Brain</span><span class="hero-flow">Boost</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Upgrade your mind with bite-size coding courses and skill-building games.
+            </p>
+
+            <!-- butonat kryesor -->
+            <div class="hero-buttons">
+                <a href="#games" class="btn-primary">Start Playing</a>
+                <a href="#courses" class="btn-secondary">Browse Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TODO: sektori i lojrave, kurseve, aplikimi, footeri vijnë ma vonë -->
+
 </body>
+
 </html>
