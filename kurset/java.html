@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Boost-Kursi Java</title>
+    <style>
+     
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0d0d0d;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+    
+        header {
+            background-color: #111;
+            padding: 20px 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+            color: #2c7be5;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            color: #2c7be5;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .module {
+            margin-bottom: 40px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 20px 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+
+        .module:hover {
+            transform: translateY(-5px);
+        }
+
+        .module h3 {
+            color: #ffcc00;
+            margin-bottom: 10px;
+        }
+
+        .module p {
+            margin: 8px 0 12px 0;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        pre {
+            background-color: #1a1a1a;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            color: #00ff99;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: #2c7be5;
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #1a5bb8;
+        }
+
+        .module ul, .module ol {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .module li {
+            margin-bottom: 6px;
+        }
+
+        /* Orbs background */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .orb1 { width: 300px; height: 300px; background: #2c7be5; top: -100px; left: -100px;}
+        .orb2 { width: 400px; height: 400px; background: #ffcc00; top: 150px; right: -150px;}
+        .orb3 { width: 250px; height: 250px; background: #ff3366; bottom: -100px; left: 50%; transform: translateX(-50%);}
+    </style>
+</head>
+<body>
+    <!-- Orbs background -->
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+
+    <header>
+        <h1>Brain Boost - Kursi i Java</h1>
+    </header>
+
+    <main>
+        <h2>Modulet e Kursit</h2>
+
+        <div class="module">
+            <h3>1. Hyrje në Java</h3>
+            <p>Ky modul ju prezanton me Java dhe konceptet bazë të programimit
+                të orientuar ne objekte. Do të mësoni pse Java është një gjuhë e fuqishme 
+                dhe e përdorur gjerësisht, si të instaloni JDK dhe si të krijoni programin 
+                tuaj të parë.</p>
+            <pre>
+// Programi i parë në Java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Mirë se vini në Java!");
+    }
+}
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>2. Sintaksa bazë dhe variabla</h3>
+            <p>Në këtë modul do të mësoni bazat e Java: variablat, llojet e të dhënave, operatorët dhe mënyrën e printimit në ekran. Kjo do t'ju ndihmojë të krijoni programe të thjeshta dhe të kuptoni strukturën e kodit.</p>
+            <pre>
+String emri = "Ardita";
+int mosha = 21;
+System.out.println(emri + " ka " + mosha + " vjet.");
+
+double pi = 3.1415;
+System.out.println("Vlera e pi: " + pi);
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>3. Kushtet dhe ciklet</h3>
+            <p>Ky modul ju ndihmon të përdorni kushtet if/else dhe ciklet for/while për të kontrolluar rrjedhën e programit. Do të praktikoni mënyra të ndryshme për të përsëritur veprime dhe për të zgjidhur probleme të thjeshta logjike.</p>
+            <pre>
+int numri = 5;
+if (numri > 0) {
+    System.out.println("Pozitiv");
+} else {
+    System.out.println("Jo pozitiv");
+}
+
+for (int i = 0; i < 5; i++) {
+    System.out.println("Numri është: " + i);
+}
+
+int shuma = 0;
+int n = 0;
+while (n < 5) {
+    shuma += n;
+    n++;
+}
+System.out.println("Shuma e numrave: " + shuma);
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>4. Funksionet dhe Metodat</h3>
+            <p>Funksionet (metodat) i bëjnë programet më të organizuara dhe ripërdorshme. Në këtë modul do të mësoni si të krijoni metoda të thjeshta me dhe pa parametra, si të ktheni vlera dhe si t'i përdorni për të strukturuar programin tuaj.</p>
+            <pre>
+public class Main {
+    public static void pershendetje() {
+        System.out.println("Përshëndetje!");
+    }
+
+    public static int shuma(int a, int b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        pershendetje();
+        System.out.println(shuma(5, 3));
+    }
+}
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>5. Arrays dhe koleksione të tjera</h3>
+            <p>Ky modul ju mëson strukturat bazë të të dhënave në Java: arrays, ArrayList dhe HashMap. Do të praktikoni manipulimin, shtimin dhe leximin e elementeve për të menaxhuar informacionin brenda programeve tuaja.</p>
+            <pre>
+String[] frutat = {"Mollë", "Banane", "Dardhë"};
+for(String fruta : frutat) {
+    System.out.println(fruta);
+}
+
+import java.util.ArrayList;
+ArrayList<String> lista = new ArrayList<>();
+lista.add("Portokall");
+for(String item : lista) {
+    System.out.println(item);
+}
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>6. Libraritë standarde dhe paketa</h3>
+            <p>Libraritë standarde në Java ofrojnë metoda të gatshme për manipulim teksti, llogaritje matematikore dhe punë me koleksione. Ky modul ju ndihmon të kurseni kohë dhe të bëni programim më efikas duke përdorur klasa dhe paketa të gatshme.</p>
+            <pre>
+import java.util.Random;
+
+Random rand = new Random();
+System.out.println("Numër rastësor: " + rand.nextInt(10));
+
+System.out.println("Vlera e sqrt(25): " + Math.sqrt(25));
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>7. Projekte praktike</h3>
+            <p>Në këtë modul do të praktikoni gjithçka të mësuar duke krijuar projekte të vogla dhe funksionale.
+                 Kjo do t'ju ndihmojë të aplikoni teorinë në probleme reale, 
+                 duke përdorur cikle, metoda dhe koleksione për të zgjidhur probleme 
+                 të ndryshme.</p>
+            <pre>
+int numri = 8;
+if(numri % 2 == 0) {
+    System.out.println("Çift");
+} else {
+    System.out.println("Tek");
+}
+
+// Llogarit shumen e një array
+int[] numrat = {1,2,3,4};
+int shuma = 0;
+for(int n : numrat) {
+    shuma += n;
+}
+System.out.println("Shuma e array: " + shuma);
+            </pre>
+        </div>
+
+    </main>
+</body>
+</html>
