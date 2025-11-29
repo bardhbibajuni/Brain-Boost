@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Boost - Kursi JavaScript (i zgjeruar)</title>
+    <style>
+        body {font-family: 'Arial', sans-serif; margin:0; padding:0; background:#0d0d0d; color:#fff;}
+        header {background:#111; padding:20px 40px; box-shadow:0 2px 10px rgba(0,0,0,0.5); position:sticky; top:0; z-index:1000;}
+        header h1 {margin:0; font-size:32px; color:#2c7be5; text-transform:uppercase; letter-spacing:1px;}
+        main {max-width:1000px; margin:60px auto; padding:0 20px;}
+        h2 {color:#2c7be5; font-size:28px; margin-bottom:20px;}
+        .module {margin-bottom:40px; background:rgba(255,255,255,0.05); border-radius:12px; padding:20px 25px; box-shadow:0 4px 20px rgba(0,0,0,0.5); transition:0.3s;}
+        .module:hover {transform:translateY(-5px);}
+        .module h3 {color:#ffcc00; margin-bottom:10px;}
+        .module p {color:#ccc; line-height:1.6; margin-bottom:10px;}
+        pre {background:#1a1a1a; padding:15px; border-radius:8px; overflow-x:auto; font-family:'Courier New'; font-size:14px; color:#00ff99;}
+    </style>
+</head>
+<body>
+<header><h1>Brain Boost - Kursi i JavaScript</h1></header>
+<main>
+<h2>Modulet e Kursit</h2>
+
+<div class="module">
+<h3>1. Hyrje në JavaScript</h3>
+<p>JavaScript është gjuha kryesore për ndërtimin e faqeve dinamike. Ajo ekzekutohet në shfletues dhe mund të modifikojë HTML, CSS, të dërgojë kërkesa në server dhe të krijojë aplikacione interaktive.</p>
+<p><strong>Çfarë mund të bëni me JavaScript?</strong></p>
+<ul>
+<li>Të ndryshoni përmbajtjen e faqes pa e rifreskuar</li>
+<li>Të validoni forma</li>
+<li>Të krijoni animacione dhe galeri</li>
+<li>Të komunikoni me serverin përmes AJAX / Fetch API</li>
+</ul>
+<pre>console.log("Mirësevini në JavaScript!");
+alert("JavaScript po funksionon!");</pre>
+</div>
+
+<div class="module">
+<h3>2. Variablat dhe tipet e të dhënave</h3>
+<p>JavaScript ka tre mënyra kryesore deklarimi: <strong>var</strong>, <strong>let</strong> dhe <strong>const</strong>. Rekomandohet të përdorni let dhe const.</p>
+<p><strong>Tipet primitive:</strong> string, number, boolean, null, undefined, bigint, symbol.</p>
+<pre>let emri = "Ardita";
+const mosha = 21;
+let nota = 9.5;
+console.log(`${emri} ka notën ${nota}`);
+
+let booleanTest = true;
+console.log(typeof booleanTest);</pre>
+</div>
+
+<div class="module">
+<h3>3. Kushtet dhe ciklet</h3>
+<p>Kushtet kontrollojnë rrjedhën e programit. Ciklet përsërisin logjikën disa herë.</p>
+<p><strong>Kushtet kryesore:</strong> if, else if, else, switch.</p>
+<p><strong>Ciklet:</strong> for, while, do-while.</p>
+<pre>let numri = 7;
+if (numri % 2 === 0) console.log("Çift");
+else console.log("Tek");
+
+for (let i = 1; i <= 5; i++) console.log("Numri: " + i);
+
+let x = 0;
+do {
+    console.log("x = " + x);
+    x++;
+} while (x < 3);</pre>
+</div>
+
+<div class="module">
+<h3>4. Funksionet</h3>
+<p>Funksionet organizojnë kodin dhe e bëjnë atë të ripërdorshëm. Mund të jenë klasike ose funksione shigjetë.</p>
+<p><strong>Funksione shigjetë:</strong> janë më të shkurtra dhe moderne.</p>
+<pre>function pershendet(emri) {
+    console.log("Përshëndetje " + emri);
+}
+
+const shuma = (a, b) => a + b;
+
+pershendet("Ardita");
+console.log(shuma(5, 4));</pre>
+</div>
+
+<div class="module">
+<h3>5. Arrays dhe Objects</h3>
+<p>Arrays ruhen lista vlerash, ndërsa objects ruhajnë të dhëna të strukturuara me çelësa dhe vlera.</p>
+<p><strong>Metoda të dobishme të array:</strong> map(), filter(), forEach(), reduce().</p>
+<pre>let frutat = ["Mollë", "Banane", "Kivi"];
+frutat.map(f => console.log(f));
+
+let student = {
+    emri: "Ardita",
+    mosha: 21,
+    drejtimi: "Shkenca Kompjuterike"
+};
+console.log(student.drejtimi);</pre>
+</div>
+
+<div class="module">
+<h3>6. DOM - Manipulimi i faqes web</h3>
+<p>DOM ju lejon të ndryshoni elementet HTML në kohë reale.</p>
+<p><strong>Metoda kryesore:</strong> getElementById, querySelector, classList, innerText, innerHTML.</p>
+<pre>let titulli = document.querySelector("#titulli");
+titulli.innerText = "Titulli u ndryshua!";
+
+document.body.style.backgroundColor = "#222";</pre>
+</div>
+
+<div class="module">
+<h3>7. Eventet</h3>
+<p>Eventet ju lejojnë të reagoni ndaj ndërveprimeve të përdoruesit.</p>
+<p><strong>Shembuj events:</strong> click, mouseover, keyup, input.</p>
+<pre>const btn = document.getElementById("butoni");
+btn.addEventListener("click", () => {
+    alert("U klikua!");
+});</pre>
+</div>
+
+<div class="module">
+<h3>8. Projekte praktike</h3>
+<p>Këto janë ushtrime të vogla për të forcuar njohuritë.</p>
+<pre>// Kalkulator i thjeshtë
+function mbledhja(a, b) { return a + b; }
+console.log(mbledhja(10, 5));
+
+// Numërimi i shkronjave
+let fjala = "JavaScript";
+console.log(fjala.length);
+
+// Filtrimi i numrave
+let lista = [1,2,3,4,5,6];
+let cift = lista.filter(n => n % 2 === 0);
+console.log(cift);</pre>
+</div>
+
+</main>
+</body>
+</html>
