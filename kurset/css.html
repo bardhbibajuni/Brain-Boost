@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Boost - Kursi CSS</title>
+    <style>
+        /* Body & Background */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0b0b0b;
+            color: #ffffff;
+        }
+
+        /* Header */
+        header {
+            background-color: #111;
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            z-index: 100;
+        }
+        header h1 { 
+            color: #00bfff; 
+            margin: 0; 
+            font-size: 32px; 
+        }
+
+        /* Main content */
+        main { 
+            max-width: 1000px; 
+            margin: 50px auto; 
+            padding: 0 20px; 
+        }
+        h2 { 
+            color: #00bfff; 
+            margin-bottom: 20px; 
+            font-size: 28px; 
+        }
+
+        /* Module cards */
+        .module {
+            margin-bottom: 40px;
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+        }
+        .module h3 { 
+            color: #ffcc00; 
+            margin-bottom: 10px; 
+        }
+        pre {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 8px;
+            color: #00ff99;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Orbs background */
+        .orb { 
+            position:absolute; 
+            border-radius:50%; 
+            filter:blur(140px); 
+            opacity:.5; 
+            z-index:-1; 
+        }
+        .orb1 { width:300px; height:300px; background:#00bfff; top:-100px; left:-120px; }
+        .orb2 { width:350px; height:350px; background:#ff3366; top:200px; right:-150px; }
+        .orb3 { width:250px; height:250px; background:#ffcc00; bottom:-100px; left:40%; }
+    </style>
+</head>
+<body>
+    <!-- Orbs background -->
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+
+    <header>
+        <h1>Brain Boost - Kursi CSS</h1>
+    </header>
+
+    <main>
+        <h2>Modulet e Kursit</h2>
+
+        <div class="module">
+            <h3>1. Hyrje në CSS</h3>
+            <p>Mësoni bazat e CSS: si funksionon stilizimi i faqeve web, çfarë janë selektorët dhe si lidhet CSS me HTML.</p>
+            <pre>
+/* Stili i thjeshtë për paragraf */
+p {
+    color: blue;
+    background-color: aquamarine;
+}
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>2. Inline, Internal dhe External CSS</h3>
+            <p>CSS mund të aplikohet në tre mënyra kryesore:</p>
+            <ul>
+                <li><strong>Inline CSS:</strong> aplikohet direkt brenda elementit HTML për ndryshime të shpejta.</li>
+                <li><strong>Internal CSS:</strong> vendoset në tagun &lt;style&gt; brenda &lt;head&gt; të një faqe HTML.</li>
+                <li><strong>External CSS:</strong> vendoset në një file të veçantë .css dhe lidhet me HTML përmes tagut &lt;link&gt;.</li>
+            </ul>
+            <p>Këto metoda ndihmojnë në menaxhimin e stileve sipas madhësisë dhe kompleksitetit të projektit.</p>
+        </div>
+
+        <div class="module">
+            <h3>3. Selektorët në CSS</h3>
+            <p>Selektorët zgjedhin elementet që do të stilizohen.</p>
+            <pre>
+/* Selektori me tag */
+h1 { color: yellow; }
+
+/* Selektori me klasë */
+.box { background: #222; padding: 20px; }
+
+/* Selektori me ID */
+#unik { color: cyan; }
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>4. Ngjyrat, Background dhe Border</h3>
+            <p>CSS ofron shumë mënyra për të modifikuar pamjen e elementeve.</p>
+            <pre>
+.box {
+    background-color: #1a1a1a;
+    border: 2px solid #ffcc00;
+    color: white;
+    padding: 15px;
+}
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>5. Layout: Flexbox & Grid</h3>
+            <p>Mësoni dy sistemet më të fuqishme për ndërtimin e faqeve moderne.</p>
+            <pre>
+/* Flexbox */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Grid */
+.gridi {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>6. Animacionet dhe Transition</h3>
+            <p>Si t'i japim lëvizje dhe efekte elementeve.</p>
+            <pre>
+.box:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+@keyframes rrotullim {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>7. Shembuj praktik me CSS</h3>
+            <p>Krijimi i një butoni modern, një kartele dhe një paneli navigimi.</p>
+            <pre>
+button {
+    background: #00bfff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+}
+button:hover {
+    background: #0088cc;
+}
+            </pre>
+        </div>
+
+    </main>
+</body>
+</html>
