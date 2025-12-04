@@ -1,27 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brain Boost - Learn. Play.</title>
+    <title>Brain Boost - Reflex Arena</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+    <!-- backgroundi -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+    </div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+
     <!-- navigacioni -->
     <nav>
         <div class="nav-container">
+
             <ul class="nav-links">
-                <li><a href="#games">Games</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#contact">Apply</a></li>
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#courses">Courses</a></li>
+                <li><a href="../index.html#contact">Apply</a></li>
             </ul>
 
-            <a href="#top" class="logo">Brain Boost</a>
+            <a href="../index.html#top" class="logo">Brain Boost</a>
 
             <div class="nav-bottom">
-                <a href="#courses" class="btn-secondary">Access Courses</a>
+                <a href="../index.html#courses" class="btn-secondary">Access Courses</a>
             </div>
 
-            <!--phone menu button -->
             <button class="mobile-menu-button" id="mobileMenuBtn">
                 <div class="hamburger"><span></span><span></span><span></span></div>
             </button>
@@ -30,24 +48,51 @@
 
     <!-- menu - telefon -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-header">
-            <a href="#top" class="mobile-menu-logo">Brain Boost</a>
+            <a href="../index.html#top" class="mobile-menu-logo">Brain Boost</a>
             <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
         </div>
 
         <div class="mobile-menu-cta">
-            <a href="#courses" class="cyber-button">Access Courses</a>
+            <a href="../index.html#courses" class="cyber-button">Access Courses</a>
         </div>
 
         <nav class="mobile-menu-nav">
             <ul>
-                <li><a href="#games">Games</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#contact">Apply</a></li>
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#courses">Courses</a></li>
+                <li><a href="../index.html#contact">Apply</a></li>
             </ul>
         </nav>
     </div>
-    
+
+
+    <!-- game UI -->
+    <div class="end-screen">
+        <div class="container">
+            <h1>Reaction Time Test</h1>
+            <div class="reaction-time-text">234 ms</div>
+            <div class="high-score-text" style="font-size:22px; margin-top:10px; opacity:0.8;"></div>
+            <button class="play-again-btn">Play Again</button>
+        </div>
+    </div>
+
+    <div class="main-menu active">
+        <div class="container">
+            <h1>Reaction Time Test</h1>
+            <p>Click as soon as you see the green color on the screen.</p>
+            <p>Click anywhere to start.</p>
+        </div>
+    </div>
+
+    <div class="clickable-area">
+        <div class="message">Click Now!</div>
+    </div>
+
+    <script src="reflex-arena.js"></script>
+
 </body>
+
 </html>
