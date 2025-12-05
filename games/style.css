@@ -7,3 +7,190 @@ body {
     color: #e5e7eb;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
+
+/* MAIN CONTAINER */
+
+.pr-section {
+    max-width: 960px;
+    margin: 140px auto 60px;
+    padding: 24px 20px 32px;
+    border-radius: 24px;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.8);
+    position: relative;
+    z-index: 1;
+}
+
+.pr-hidden {
+    display: none;
+}
+
+/* HERO */
+
+.pr-hero {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pr-hero h1 {
+    font-size: 40px;
+}
+
+.pr-hero p {
+    opacity: 0.85;
+    margin-bottom: 16px;
+}
+
+/* BUTTONS (GLOBAL UPGRADE) */
+
+.pr-btn-primary,
+.pr-btn-secondary {
+    border-radius: 999px;
+    padding: 12px 26px;
+    border: 1px solid transparent;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 16px;
+    letter-spacing: 0.03em;
+    transition: all 0.22s ease;
+    user-select: none;
+}
+
+/* PRIMARY BUTTON — GREEN GLOW */
+
+.pr-btn-primary {
+    background: linear-gradient(135deg, #22c55e, #4ade80);
+    color: #052e16;
+    box-shadow: 0 12px 30px rgba(34, 197, 94, 0.25),
+                inset 0 0 10px rgba(22, 163, 74, 0.4);
+}
+
+.pr-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px rgba(34, 197, 94, 0.45),
+                inset 0 0 14px rgba(22, 163, 74, 0.55);
+}
+
+.pr-btn-primary:active {
+    transform: scale(0.96);
+    box-shadow: 0 10px 26px rgba(34, 197, 94, 0.25);
+}
+
+/* SECONDARY BUTTON — FUTURISTIC DARK BLUE */
+
+.pr-btn-secondary {
+    background: rgba(30, 41, 59, 0.9);
+    color: #e5e7eb;
+    border: 1px solid rgba(148, 163, 184, 0.45);
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.25);
+}
+
+.pr-btn-secondary:hover {
+    background: rgba(51, 65, 85, 1);
+    border-color: #6366f1;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(99, 102, 241, 0.35);
+}
+
+.pr-btn-secondary:active {
+    transform: scale(0.96);
+}
+
+/* TOP INFO BAR */
+
+.pr-top-bar {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.pr-pill {
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    font-size: 14px;
+    display: flex;
+    gap: 6px;
+}
+
+/* GRID OF COLORS */
+
+.pr-grid {
+    margin: 30px auto;
+    width: 260px;
+    height: 260px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.pr-tile {
+    border-radius: 16px;
+    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+/* COLORS */
+.pr-tile[data-color="blue"] { background: #3b82f6; }
+.pr-tile[data-color="red"] { background: #ef4444; }
+.pr-tile[data-color="yellow"] { background: #eab308; }
+.pr-tile[data-color="green"] { background: #22c55e; }
+
+/* FLASH ANIMATION */
+.pr-tile.flash {
+    transform: scale(1.10);
+    filter: brightness(1.6);
+}
+
+/* STATUS TEXT */
+
+.pr-status {
+    text-align: center;
+    font-size: 18px;
+    opacity: 0.9;
+    margin-top: 6px;
+}
+
+/* RESULT CARD */
+
+.pr-result-card {
+    padding: 22px 18px 26px;
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.97);
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    text-align: center;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.45);
+}
+
+.pr-result-main {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.pr-result-highscore {
+    font-size: 15px;
+    opacity: 0.85;
+    margin-top: 6px;
+}
+
+/* RESULT BUTTONS (BETTER LAYOUT + ANIMATION) */
+
+.pr-result-actions {
+    margin-top: 22px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* BACK LINK AS BUTTON */
+
+.pr-btn-back {
+    text-decoration: none;
+    display: inline-block;
+}
