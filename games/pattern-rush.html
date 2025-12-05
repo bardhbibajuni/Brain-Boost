@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Boost - Pattern Rush</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- background -->
+    <div class="cyber-bg"><div class="cyber-gradient"></div></div>
+    <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+    <div class="grid-overlay"><div class="grid-lines"></div><div class="grid-glow"></div></div>
+    <div class="scanlines"></div><div class="noise-overlay"></div>
+
+    <!-- navigation -->
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#courses">Courses</a></li>
+                <li><a href="../index.html#contact">Apply</a></li>
+            </ul>
+
+            <a href="../index.html#top" class="logo">Brain Boost</a>
+
+            <div class="nav-bottom">
+                <a href="../index.html#courses" class="btn-secondary">Access Courses</a>
+            </div>
+
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- mobile menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="../index.html#top" class="mobile-menu-logo">Brain Boost</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+        </div>
+
+        <div class="mobile-menu-cta">
+            <a href="../index.html#courses" class="cyber-button">Access Courses</a>
+        </div>
+
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#courses">Courses</a></li>
+                <li><a href="../index.html#contact">Apply</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- PATTERN RUSH -->
+    <section class="pr-section">
+
+        <!-- hero -->
+        <div class="pr-hero">
+            <h1>Pattern Rush</h1>
+            <p>Memorize sequences me kohë. Trajnim për memorie.</p>
+            <button id="prStartBtn" class="pr-btn-primary">Play <span class="pr-kbd">🎯</span></button>
+        </div>
+
+        <!-- game -->
+        <div id="prGame" class="pr-game pr-hidden">
+
+            <div class="pr-top-bar">
+                <div class="pr-pill"><span>Round:</span> <span id="prRound">1</span></div>
+                <div class="pr-pill"><span>Speed:</span> <span id="prSpeed">1x</span></div>
+                <div class="pr-pill"><span>High Score:</span> <span id="prHigh">0</span></div>
+            </div>
+
+            <div class="pr-grid">
+                <div class="pr-tile" data-color="blue"></div>
+                <div class="pr-tile" data-color="red"></div>
+                <div class="pr-tile" data-color="yellow"></div>
+                <div class="pr-tile" data-color="green"></div>
+            </div>
+
+            <div class="pr-status" id="prStatus">Watch the pattern...</div>
+        </div>
+
+        <!-- result -->
+        <div id="prResult" class="pr-result pr-hidden">
+            <div class="pr-result-card">
+                <h2>Rezultati</h2>
+                <p class="pr-result-main">Round: <span id="prFinalRound">1</span></p>
+                <p class="pr-result-highscore">High score: <span id="prFinalHigh">0</span></p>
+
+                <div class="pr-result-actions">
+                    <button id="prPlayAgainBtn" class="pr-btn-primary">Play Again</button>
+                    <a href="../index.html#games" class="pr-btn-secondary pr-btn-back">Back to Games</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="pattern-rush.js"></script>
+</body>
+</html>
