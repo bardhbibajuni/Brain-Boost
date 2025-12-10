@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Boost-Kursi JavaScript</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0d0d0d;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #111;
+            padding: 20px 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+            color: #2c7be5;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            color: #2c7be5;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .module {
+            margin-bottom: 40px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 20px 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+
+        .module:hover {
+            transform: translateY(-5px);
+        }
+
+        .module h3 {
+            color: #ffcc00;
+            margin-bottom: 10px;
+        }
+
+        .module p {
+            margin: 8px 0 12px 0;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        pre {
+            background-color: #1a1a1a;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            color: #00ff99;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: #2c7be5;
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #1a5bb8;
+        }
+
+       
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .orb1 { width: 300px; height: 300px; background: #2c7be5; top: -100px; left: -100px;}
+        .orb2 { width: 400px; height: 400px; background: #ffcc00; top: 150px; right: -150px;}
+        .orb3 { width: 250px; height: 250px; background: #ff3366; bottom: 0; left: 50%; transform: translateX(-50%);}
+    </style>
+</head>
+<body>
+   
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+
+    <header>
+        <h1>Brain Boost - Kursi JavaScript</h1>
+    </header>
+
+    <main>
+        <h2>Modulet e Kursit</h2>
+
+        <div class="module">
+            <h3>1. Hyrje në JavaScript</h3>
+            <p>JavaScript është gjuha kryesore e web-it. Ky modul shpjegon çfarë është JavaScript,
+                ku përdoret dhe si ekzekutohet në browser. Kështu do të krijoni skriptin tuaj të parë.</p>
+            <pre>
+// Programi i parë në JavaScript
+console.log("Mirë se vini në JavaScript!");
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>2. Variablat dhe tipet e të dhënave</h3>
+            <p>Do të mësoni dallimin mes var, let dhe const,
+               si funksionojnë stringjet, numrat, bool-et dhe tipet e tjera të thjeshta.</p>
+            <pre>
+let emri="Ardita";
+const mosha=21;
+
+console.log(emri + " ka " + mosha + " vjet.");
+
+let pi=3.1415;
+console.log("Vlera e pi është: " + pi);
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>3. Kushtet dhe ciklet</h3>
+            <p>JavaScript përdor if/else, switch, for, while dhe struktura të tjera për kontrollin e rrjedhës së kodit.</p>
+            <pre>
+let numri=5;
+
+if (numri>0) {
+    console.log("Pozitiv");
+} else {
+    console.log("Negativ");
+}
+
+for (let i=0;i<5;i++) {
+    console.log("Numri: "+ i);
+}
+
+let shuma=0;
+let n=0;
+
+while (n<5) {
+    shuma+= n;
+    n++;
+}
+
+console.log("Shuma: " + shuma);
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>4. Funksionet</h3>
+            <p>Funksionet janë një pjesë thelbësore e JavaScript. Do të shihni funksione normale,
+               arrow functions dhe funksione për kthimin e vlerave.</p>
+            <pre>
+function pershendetje() {
+    console.log("Përshëndetje!");
+}
+
+const shuma = (a,b) => {
+    return a+b;
+};
+
+pershendetje();
+console.log(shuma(5,3));
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>5. Arrays dhe Objects</h3>
+            <p>JavaScript është shumë fleksibël me strukturat e të dhënave. Do të përdorni arrays,
+               objects dhe metoda të ndryshme për manipulimin e tyre.</p>
+            <pre>
+let frutat = ["Mollë","Banane","Dardhë"];
+
+frutat.forEach(f =>console.log(f));
+
+let person={
+    emri: "Ardita",
+    mosha: 21
+};
+
+console.log(person.emri);
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>6. DOM-Manipulimi i elementeve</h3>
+            <p>DOM ju lejon të ndryshoni HTML dhe CSS me JavaScript.
+               Ky modul ju mëson të krijoni, lexoni dhe manipuloni elemente.</p>
+            <pre>
+// Ndërro tekstin e një elementi
+document.getElementById("titulli").innerText = "Teksti i ri";
+
+// Krijo element të ri
+let p=document.createElement("p");
+p.innerText="Ky paragraf u shtua me JS";
+document.body.appendChild(p);
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>7. Projekte praktike</h3>
+            <p>Në fund do të zbatoni gjithçka që keni mësuar duke ndërtuar mini-projekte.</p>
+            <pre>
+// Shembull: Trego nëse një numër është çift apo tek
+let num=8;
+
+if (num%2===0) {
+    console.log("Çift");
+} else {
+    console.log("Tek");
+}
+
+// Shembull: gjej shumen e një array
+let numrat=[1, 2, 3, 4];
+let total=0;
+
+numrat.forEach(n =>total+=n);
+
+console.log("Shuma: "+ total);
+            </pre>
+        </div>
+
+    </main>
+</body>
+</html>
