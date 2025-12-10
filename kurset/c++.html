@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brain Boost - Kursi C++</title>
+<style>
+
+body {
+font-family: 'Arial', sans-serif;
+margin: 0;
+padding: 0;
+background-color: #0d0d0d;
+color: #ffffff;
+overflow-x: hidden;
+}
+
+header {
+background-color: #111;
+padding: 20px 40px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+position: sticky;
+top: 0;
+z-index: 1000;
+}
+
+header h1 {
+margin: 0;
+font-size: 32px;
+color: #2c7be5;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+main {
+max-width: 1000px;
+margin: 60px auto;
+padding: 0 20px;
+}
+
+h2 {
+color: #2c7be5;
+font-size: 28px;
+margin-bottom: 20px;
+}
+
+.module {
+margin-bottom: 40px;
+background: rgba(255,255,255,0.05);
+border-radius: 12px;
+padding: 20px 25px;
+box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+transition: transform 0.3s;
+}
+
+.module:hover {
+transform: translateY(-5px);
+}
+
+.module h3 {
+color: #ffcc00;
+margin-bottom: 10px;
+}
+
+.module p {
+margin: 8px 0 12px 0;
+line-height: 1.6;
+color: #ccc;
+}
+
+pre {
+background-color: #1a1a1a;
+padding: 15px;
+border-radius: 8px;
+overflow-x: auto;
+font-family: 'Courier New', Courier, monospace;
+font-size: 14px;
+color: #00ff99;
+}
+
+.module ul, .module ol {
+margin-left: 20px;
+margin-bottom: 12px;
+}
+
+.module li {
+margin-bottom: 6px;
+}
+
+/* Orbs background */
+.orb {
+position: absolute;
+border-radius: 50%;
+filter: blur(150px);
+opacity: 0.5;
+z-index: -1;
+}
+
+.orb1 { width: 300px; height: 300px; background: #2c7be5; top: -100px; left: -100px;}
+.orb2 { width: 400px; height: 400px; background: #ffcc00; top: 150px; right: -150px;}
+.orb3 { width: 250px; height: 250px; background: #ff3366; bottom: -100px; left: 50%; transform: translateX(-50%);}
+</style>
+</head>
+<body>
+
+<!-- Orbs background -->
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<header>
+<h1>Brain Boost - Kursi C++</h1>
+</header>
+
+<main>
+<h2>Modulet e Kursit</h2>
+
+<div class="module">
+<h3>1. Hyrje në C++</h3>
+<p>Çfarë është C++, pse përdoret dhe ku aplikohet (lojëra, sisteme, algoritme, embedded).</p>
+<pre>
+// Programi më i thjeshtë në C++
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout &lt;&lt; "Hello C++!" &lt;&lt; endl;
+    return 0;
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>2. Variablat dhe Tipet e të Dhënave</h3>
+<p>Si të krijojmë variabla në C++.</p>
+<pre>
+int mosha = 19;
+double paga = 450.50;
+char shkronja = 'A';
+bool aktiv = true;
+string emri = "Arlinda";
+</pre>
+</div>
+
+<div class="module">
+<h3>3. Input / Output</h3>
+<p>Si të marrim të dhëna nga përdoruesi dhe t'i shfaqim.</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int mosha;
+    cout &lt;&lt; "Shkruaj moshen: ";
+    cin &gt;&gt; mosha;
+
+    cout &lt;&lt; "Mosha juaj eshte: " &lt;&lt; mosha &lt;&lt; endl;
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>4. If / Else – Kushtet</h3>
+<p>Vendimmarrja në C++.</p>
+<pre>
+int mosha = 18;
+
+if (mosha >= 18) {
+    cout &lt;&lt; "Je i rritur";
+} else {
+    cout &lt;&lt; "Je i mitur";
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>5. Cikli For</h3>
+<p>Përdorimi i cikleve.</p>
+<pre>
+for (int i = 1; i <= 5; i++) {
+    cout &lt;&lt; "Numri: " &lt;&lt; i &lt;&lt; endl;
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>6. Funksionet</h3>
+<p>Si të krijoni funksione të thjeshta në C++.</p>
+<pre>
+int shuma(int a, int b) {
+    return a + b;
+}
+
+cout &lt;&lt; shuma(4, 7); // 11
+</pre>
+</div>
+
+<div class="module">
+<h3>7. Arrays</h3>
+<p>Ruajtja e shumë vlerave në një variabël.</p>
+<pre>
+int nota[5] = {10, 9, 8, 9, 10};
+
+for (int i = 0; i < 5; i++) {
+    cout &lt;&lt; nota[i] &lt;&lt; " ";
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>8. String-et në C++</h3>
+<p>Punimi me tekste.</p>
+<pre>
+string emri = "Arlinda";
+cout &lt;&lt; "Gjatësia: " &lt;&lt; emri.length();
+
+// Bashkim string-ësh
+string a = "Hello ";
+string b = "C++";
+cout &lt;&lt; a + b;
+</pre>
+</div>
+
+<div class="module">
+<h3>9. OOP – Programimi i Orientuar në Objekte</h3>
+<p>Klasat dhe objektet – baza e C++.</p>
+<pre>
+class Student {
+public:
+    string emri;
+    int mosha;
+
+    void prezanto() {
+        cout &lt;&lt; "Une jam " &lt;&lt; emri &lt;&lt; ", mosha " &lt;&lt; mosha;
+    }
+};
+
+int main() {
+    Student s;
+    s.emri = "Arlinda";
+    s.mosha = 19;
+    s.prezanto();
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>10. Konstruktorët</h3>
+<p>Funksionet që ekzekutohen automatikisht kur krijohet objekti.</p>
+<pre>
+class Vetura {
+public:
+    string modeli;
+
+    // Konstruktor
+    Vetura(string m) {
+        modeli = m;
+    }
+};
+
+int main() {
+    Vetura v("BMW");
+    cout &lt;&lt; v.modeli;
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>11. Pointerët</h3>
+<p>Një prej koncepteve më të rëndësishme në C++.</p>
+<pre>
+int x = 10;
+int* ptr = &x;
+
+cout &lt;&lt; ptr;   // adresa
+cout &lt;&lt; *ptr;  // vlera 10
+</pre>
+</div>
+
+<div class="module">
+<h3>12. File Handling – Shkrimi & Leximi në File</h3>
+<p>Si të punoni me file në C++.</p>
+<pre>
+#include &lt;fstream&gt;
+
+ofstream file("test.txt");
+file &lt;&lt; "Pershendetje!";
+file.close();
+</pre>
+</div>
+
+</main>
+</body>
+</html>
