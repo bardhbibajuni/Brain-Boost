@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brain Boost - Number Memory</title>
+    <link rel="stylesheet" href="number-memory.css" />
+</head>
+
+<body>
+
+    <!-- Background Elements -->
+    <div class="cyber-bg"><div class="cyber-gradient"></div></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay"><div class="grid-lines"></div><div class="grid-glow"></div></div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#courses">Courses</a></li>
+                <li><a href="../index.html#contact">Apply</a></li>
+            </ul>
+
+            <a href="../index.html#top" class="logo">Brain Boost</a>
+
+            <div class="nav-bottom">
+                <a href="../index.html#courses" class="btn-secondary">Access Courses</a>
+            </div>
+
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </button>
+        </div>
+    </nav>
+
+    <section class="nm-section">
+
+        <!-- HERO -->
+        <div class="nm-hero">
+            <h1>Number Memory</h1>
+            <p>Sa gjatë mund të mbash mend?</p>
+            <button id="nmStartBtn" class="nm-btn-primary">Play <span>🧠</span></button>
+        </div>
+
+        <!-- GAME: Number Display -->
+        <div id="nmGame" class="nm-game nm-hidden">
+            <div id="nmRoundText" class="nm-round">Round 1</div>
+            <div id="nmNumber" class="nm-number">7</div>
+            <div class="nm-instructions">Memorize këtë numër...</div>
+        </div>
+
+        <!-- INPUT PHASE -->
+        <div id="nmInputPhase" class="nm-input-phase nm-hidden">
+            <h2>Enter the number</h2>
+            <input id="nmInput" type="number" autocomplete="off" class="nm-input" placeholder="Shkruaj numrin">
+            <button id="nmSubmitBtn" class="nm-btn-primary">Submit</button>
+        </div>
+
+        <!-- RESULT -->
+        <div id="nmResult" class="nm-result nm-hidden">
+            <div class="nm-result-card">
+                <h2>Rezultati</h2>
+                <p class="nm-score">Arrite në round: <span id="nmFinalRound">1</span></p>
+                <p class="nm-highscore">High score: <span id="nmHighScore">1</span></p>
+
+                <div class="nm-result-actions">
+                    <button id="nmPlayAgainBtn" class="nm-btn-primary">Play Again</button>
+                    <a href="../index.html#games" class="nm-btn-secondary nm-btn-back">Back to Games</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="number-memory.js"></script>
+</body>
+</html>
