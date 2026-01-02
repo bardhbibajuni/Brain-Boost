@@ -164,3 +164,59 @@ if (window.innerWidth > 768) {
         cursorGlow.style.opacity = '0';
     });
 }
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href.length <= 1) return;
+
+        e.preventDefault();
+
+        if (href === '#top') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+
+    if (window.scrollY > 100) {
+        nav.style.background = 'rgba(15, 15, 35, 0.95)';
+        nav.style.boxShadow = '0 0 30px rgba(0, 255, 255, 0.2)';
+    } else {
+        nav.style.background = 'rgba(15, 15, 35, 0.9)';
+        nav.style.boxShadow = 'none';
+    }
+});
+
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
+);
+
+document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+
+document.querySelectorAll('.btn-primary, .btn-secondary').forEach((button) => {
+    button.addEventListener('mouseenter', function () {
+        this.style.boxShadow = '0 0 30px rgba(0, 255, 255, 0.6)';
+    });
+    button.addEventListener('mouseleave', function () {
+        this.style.boxShadow = '';
+    });
+});
+
+document.querySelectorAll('.feature-card').forEach((card) => {
+    card.addEventListener('mouseenter', function () {
+        this.style.animation = 'glitch1 0.3s ease-in-out';
+        setTimeout(() => (this.style.animation = ''), 300);
+    });
+});
