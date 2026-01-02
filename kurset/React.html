@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brain Boost - Kursi React</title>
+<style>
+
+body {
+font-family: 'Arial', sans-serif;
+margin: 0;
+padding: 0;
+background-color: #0d0d0d;
+color: #ffffff;
+overflow-x: hidden;
+}
+
+header {
+background-color: #111;
+padding: 20px 40px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+position: sticky;
+top: 0;
+z-index: 1000;
+}
+
+header h1 {
+margin: 0;
+font-size: 32px;
+color: #2c7be5;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+main {
+max-width: 1000px;
+margin: 60px auto;
+padding: 0 20px;
+}
+
+h2 {
+color: #2c7be5;
+font-size: 28px;
+margin-bottom: 20px;
+}
+
+.module {
+margin-bottom: 40px;
+background: rgba(255,255,255,0.05);
+border-radius: 12px;
+padding: 20px 25px;
+box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+transition: transform 0.3s;
+}
+
+.module:hover {
+transform: translateY(-5px);
+}
+
+.module h3 {
+color: #ffcc00;
+margin-bottom: 10px;
+}
+
+.module p {
+margin: 8px 0 12px 0;
+line-height: 1.6;
+color: #ccc;
+}
+
+pre {
+background-color: #1a1a1a;
+padding: 15px;
+border-radius: 8px;
+overflow-x: auto;
+font-family: 'Courier New', Courier, monospace;
+font-size: 14px;
+color: #00ff99;
+}
+
+.module ul, .module ol {
+margin-left: 20px;
+margin-bottom: 12px;
+}
+
+.module li {
+margin-bottom: 6px;
+}
+
+/* Orbs background */
+.orb {
+position: absolute;
+border-radius: 50%;
+filter: blur(150px);
+opacity: 0.5;
+z-index: -1;
+}
+
+.orb1 { width: 300px; height: 300px; background: #2c7be5; top: -100px; left: -100px;}
+.orb2 { width: 400px; height: 400px; background: #ffcc00; top: 150px; right: -150px;}
+.orb3 { width: 250px; height: 250px; background: #ff3366; bottom: -100px; left: 50%; transform: translateX(-50%);}
+</style>
+</head>
+<body>
+
+<!-- Orbs background -->
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<header>
+<h1>Brain Boost - Kursi React</h1>
+</header>
+
+<main>
+<h2>Modulet e Kursit</h2>
+
+<div class="module">
+<h3>1. Hyrje në React</h3>
+<p>Çfarë është React dhe pse përdoret për frontend development.</p>
+<pre>
+// Kontrollo versionin e Node (nevojitet për React)
+node -v
+
+// Kontrollo versionin e npm
+npm -v
+</pre>
+</div>
+
+<div class="module">
+<h3>2. Krijimi i projektit me Create React App</h3>
+<p>Si të krijoni një projekt të ri React me npm.</p>
+<pre>
+npx create-react-app projekti-im
+cd projekti-im
+npm start
+</pre>
+</div>
+
+<div class="module">
+<h3>3. Komponentët në React</h3>
+<p>React përdor komponentë për të ndarë UI-në në pjesë të ripërdorshme.</p>
+<pre>
+// file: App.js
+function App() {
+  return &lt;h1>Hello nga React!&lt;/h1>;
+}
+
+export default App;
+</pre>
+</div>
+
+<div class="module">
+<h3>4. JSX – Sintaksa e React</h3>
+<p>Si të shkruani HTML brenda JavaScript.</p>
+<pre>
+const element = &lt;h1&gt;Pershendetje, React!&lt;/h1&gt;;
+</pre>
+</div>
+
+<div class="module">
+<h3>5. Props – Parametrat e komponentëve</h3>
+<p>Si të kaloni të dhëna tek komponentët.</p>
+<pre>
+function Welcome(props) {
+  return &lt;h1&gt;Pershendetje, {props.emri}!&lt;/h1&gt;;
+}
+
+&lt;Welcome emri="Arlinda" /&gt;
+</pre>
+</div>
+
+<div class="module">
+<h3>6. State – Gjendja e komponentëve</h3>
+<p>Si të menaxhoni gjendjen brenda komponentëve.</p>
+<pre>
+import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Numri: {count}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Rrit&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>7. useEffect – Efektet anësore</h3>
+<p>Si të bëni kërkesa HTTP ose efekte të tjera anësore.</p>
+<pre>
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+function DataFetcher() {
+  const [data, setData] = useState(null);
+
+  useEffect(() =&gt; {
+    axios.get('https://api.example.com')
+      .then(res =&gt; setData(res.data));
+  }, []);
+
+  return &lt;div&gt;{JSON.stringify(data)}&lt;/div&gt;;
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>8. Events – Ngjarjet</h3>
+<p>Si të trajtoni ngjarje në React.</p>
+<pre>
+function Button() {
+  const handleClick = () =&gt; {
+    alert('U klikua butoni!');
+  }
+
+  return &lt;button onClick={handleClick}&gt;Kliko&lt;/button&gt;;
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>9. Ruterët me React Router</h3>
+<p>Si të krijoni ruterë për faqet e ndryshme.</p>
+<pre>
+npm install react-router-dom
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Home';
+import About from './About';
+
+function App() {
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
+        &lt;Route path="/about" element={&lt;About /&gt;} /&gt;
+      &lt;/Routes&gt;
+    &lt;/BrowserRouter&gt;
+  );
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>10. Conditional Rendering</h3>
+<p>Si të shfaqni komponentë në bazë të kushteve.</p>
+<pre>
+function Greeting({ loggedIn }) {
+  return (
+    &lt;div&gt;
+      {loggedIn ? &lt;p&gt;Mirë se erdhët!&lt;/p&gt; : &lt;p&gt;Ju lutem kyçuni.&lt;/p&gt;}
+    &lt;/div&gt;
+  );
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>11. Lidhja me API</h3>
+<p>React mund të lidhet me API shumë lehtë.</p>
+<pre>
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+function Studentet() {
+  const [studentet, setStudentet] = useState([]);
+
+  useEffect(() =&gt; {
+    axios.get('/api/studentet')
+      .then(res =&gt; setStudentet(res.data));
+  }, []);
+
+  return (
+    &lt;ul&gt;
+      {studentet.map(s =&gt; &lt;li key={s.id}&gt;{s.emri}&lt;/li&gt;)}
+    &lt;/ul&gt;
+  );
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>12. Forme dhe Controlled Components</h3>
+<p>Si të krijoni forma dhe të lexoni inputet e përdoruesit.</p>
+<pre>
+import { useState } from 'react';
+
+function KontaktForm() {
+  const [emri, setEmri] = useState('');
+
+  const handleSubmit = (e) =&gt; {
+    e.preventDefault();
+    alert(`Faleminderit, ${emri}!`);
+  }
+
+  return (
+    &lt;form onSubmit={handleSubmit}&gt;
+      &lt;input type="text" value={emri} onChange={e =&gt; setEmri(e.target.value)} /&gt;
+      &lt;button type="submit"&gt;Dergo&lt;/button&gt;
+    &lt;/form&gt;
+  );
+}
+</pre>
+</div>
+
+</main>
+</body>
+</html>

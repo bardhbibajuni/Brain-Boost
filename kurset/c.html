@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brain Boost - Kursi C</title>
+<style>
+
+body {
+font-family: 'Arial', sans-serif;
+margin: 0;
+padding: 0;
+background-color: #0d0d0d;
+color: #ffffff;
+overflow-x: hidden;
+}
+
+header {
+background-color: #111;
+padding: 20px 40px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+position: sticky;
+top: 0;
+z-index: 1000;
+}
+
+header h1 {
+margin: 0;
+font-size: 32px;
+color: #2c7be5;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+main {
+max-width: 1000px;
+margin: 60px auto;
+padding: 0 20px;
+}
+
+h2 {
+color: #2c7be5;
+font-size: 28px;
+margin-bottom: 20px;
+}
+
+.module {
+margin-bottom: 40px;
+background: rgba(255,255,255,0.05);
+border-radius: 12px;
+padding: 20px 25px;
+box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+transition: transform 0.3s;
+}
+
+.module:hover {
+transform: translateY(-5px);
+}
+
+.module h3 {
+color: #ffcc00;
+margin-bottom: 10px;
+}
+
+.module p {
+margin: 8px 0 12px 0;
+line-height: 1.6;
+color: #ccc;
+}
+
+pre {
+background-color: #1a1a1a;
+padding: 15px;
+border-radius: 8px;
+overflow-x: auto;
+font-family: 'Courier New', Courier, monospace;
+font-size: 14px;
+color: #00ff99;
+}
+
+.module ul, .module ol {
+margin-left: 20px;
+margin-bottom: 12px;
+}
+
+.module li {
+margin-bottom: 6px;
+}
+
+/* Orbs background */
+.orb {
+position: absolute;
+border-radius: 50%;
+filter: blur(150px);
+opacity: 0.5;
+z-index: -1;
+}
+
+.orb1 { width: 300px; height: 300px; background: #2c7be5; top: -100px; left: -100px;}
+.orb2 { width: 400px; height: 400px; background: #ffcc00; top: 150px; right: -150px;}
+.orb3 { width: 250px; height: 250px; background: #ff3366; bottom: -100px; left: 50%; transform: translateX(-50%);}
+</style>
+</head>
+<body>
+
+<!-- Orbs background -->
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<header>
+<h1>Brain Boost - Kursi C</h1>
+</header>
+
+<main>
+<h2>Modulet e Kursit</h2>
+
+<div class="module">
+<h3>1. Hyrje në C</h3>
+<p>Çfarë është gjuha C, historiku, pse përdoret dhe ku aplikohet (OS, embedded, sisteme, algoritme).</p>
+<pre>
+// Programi më i thjeshtë në C
+#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello C!");
+    return 0;
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>2. Variablat dhe Tipet e të Dhënave</h3>
+<p>Tipet bazë të të dhënave dhe deklarimi i variablave në C.</p>
+<pre>
+int mosha = 20;
+float nota = 9.5;
+char shkronja = 'A';
+double paga = 450.75;
+</pre>
+</div>
+
+<div class="module">
+<h3>3. Input & Output me printf dhe scanf</h3>
+<p>Leximi i të dhënave nga përdoruesi.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int mosha;
+    printf("Shkruaj moshen: ");
+    scanf("%d", &mosha);
+
+    printf("Mosha juaj eshte: %d", mosha);
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>4. If / Else – Kushtet në C</h3>
+<p>Kushtet bazike me sintaksën e C.</p>
+<pre>
+int nota = 8;
+
+if (nota >= 5) {
+    printf("Kalove!");
+} else {
+    printf("Nuk kalove.");
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>5. Cikli For, While, Do-While</h3>
+<p>Përsëritja e veprimeve.</p>
+<pre>
+// For
+for (int i = 1; i <= 5; i++) {
+    printf("%d\n", i);
+}
+
+// While
+int x = 1;
+while (x <= 5) {
+    printf("%d\n", x);
+    x++;
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>6. Funksionet</h3>
+<p>Krijimi i funksioneve dhe thirrja e tyre.</p>
+<pre>
+int shuma(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    printf("%d", shuma(4, 6)); // 10
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>7. Arrays në C</h3>
+<p>Punimi me lista të dhënash.</p>
+<pre>
+int nota[5] = {10, 9, 8, 7, 10};
+
+for (int i = 0; i < 5; i++) {
+    printf("%d ", nota[i]);
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>8. String-et në C</h3>
+<p>String-et janë arrays të tipit <code>char</code>.</p>
+<pre>
+char emri[] = "Arlinda";
+
+printf("Emri: %s\n", emri);
+printf("Shkronja e pare: %c\n", emri[0]);
+</pre>
+</div>
+
+<div class="module">
+<h3>9. Pointerët në C</h3>
+<p>Një prej temave më të rëndësishme dhe fondamente e C.</p>
+<pre>
+int x = 10;
+int* ptr = &x;
+
+printf("Adresa: %p\n", ptr);
+printf("Vlera: %d", *ptr);
+</pre>
+</div>
+
+<div class="module">
+<h3>10. Struktura (struct)</h3>
+<p>Si të krijojmë tipe të personalizuara të të dhënave.</p>
+<pre>
+struct Student {
+    char emri[20];
+    int mosha;
+};
+
+int main() {
+    struct Student s = {"Arlinda", 19};
+    printf("%s - %d", s.emri, s.mosha);
+}
+</pre>
+</div>
+
+<div class="module">
+<h3>11. Dynamic Memory – malloc, free</h3>
+<p>Alokimi dinamik i memories.</p>
+<pre>
+#include &lt;stdlib.h&gt;
+
+int* ptr = malloc(sizeof(int));
+*ptr = 25;
+
+printf("%d", *ptr);
+
+free(ptr);
+</pre>
+</div>
+
+<div class="module">
+<h3>12. File Handling – Lexim & Shkrim në File</h3>
+<p>Punimi me file në C.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *file = fopen("test.txt", "w");
+    fprintf(file, "Pershendetje!");
+    fclose(file);
+}
+</pre>
+</div>
+
+</main>
+</body>
+</html>
