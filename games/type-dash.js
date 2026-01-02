@@ -1,7 +1,7 @@
 const MODE_60 = "60s";
 const MODE_PARAGRAPH = "paragraph";
 
-// DOM elements
+// DOM elementet
 const hero = document.querySelector(".td-hero");
 const modeSelect = document.getElementById("tdModeSelect");
 const gameArea = document.getElementById("tdGame");
@@ -36,15 +36,12 @@ let startTime = null;
 let elapsedMs = 0;
 let testRunning = false;
 
-// stats
 let typedChars = 0;
 let correctChars = 0;
 
-// high scores (RAM only)
 let highScore60 = null;
 let highScoreParagraph = null;
 
-// paragraphs
 const paragraphs = [
     "The summer evenings were long and peaceful. Fresh air slipped through the open window while the city slowly fell asleep in the distance. Tom sat at his desk, tapping his fingers on the old wooden surface. He had a habit of thinking deeply before he spoke, and tonight his thoughts drifted far beyond the small room. The distant hum of cars blended with the rustling of the leaves outside, creating a calming backdrop that made it easy to lose track of time. He wanted to write something meaningful, but the right words refused to come easily, drifting around his mind like clouds that never broke into rain.",
     "Practice is the fastest path to improving your typing speed. Many people believe speed comes first, but accuracy is truly the foundation. With consistent effort, the fingers begin to learn movements that once felt awkward or slow. Over time, the mind stops focusing on each individual letter and instead recognizes entire words as shapes. This creates a natural flow that becomes both efficient and comfortable. Improvement is not always visible at first, but small daily habits build skills that last a lifetime. The more familiar the keyboard becomes, the more your hands move without conscious thought.",
@@ -56,12 +53,10 @@ const paragraphs = [
     "Rain tapped gently against the window as Michael prepared a cup of warm tea. The soft rhythm created a soothing atmosphere inside the small apartment. He settled onto the couch with a notebook in his hand, ready to map out his plans for the week. The simple act of organizing his thoughts made him feel calmer and more grounded. As he wrote, he realized how helpful it was to take a moment away from the noise of everyday life and focus on what truly mattered."
 ];
 
-// pick a random long paragraph
 function pickParagraph() {
     return paragraphs[Math.floor(Math.random() * paragraphs.length)];
 }
 
-// reset stats
 function resetStats() {
     typedChars = 0;
     correctChars = 0;
@@ -72,18 +67,15 @@ function resetStats() {
     updateLiveStats();
 }
 
-// mode selection
 function setMode(mode) {
     currentMode = mode;
     modeLabel.textContent = mode === MODE_60 ? "60-Second Test" : "Paragraph Test";
 
-    // switch UI
     modeSelect.classList.add("td-hidden");
     gameArea.classList.remove("td-hidden");
     gameArea.classList.add("active");
     resultArea.classList.add("td-hidden");
 
-    // load text
     targetText = pickParagraph();
     renderTargetText("");
     inputEl.value = "";
@@ -93,12 +85,6 @@ function setMode(mode) {
     resetStats();
 }
 
-/**
- * RENDER TEXT (WORD-BASED)
- * - çdo fjalë është <span class="td-word"> ... </span>
- * - brenda fjales ende kemi <span class="td-char">
- * - kjo bën që fjala të mos pritet kurrë në mes
- */
 function renderTargetText(currentInput) {
     let html = "";
     let inWord = false;
@@ -110,15 +96,13 @@ function renderTargetText(currentInput) {
 
         if (isSpace) {
             if (inWord) {
-                html += "</span>"; // mbyll td-word
+                html += "</span>";
                 inWord = false;
             }
-            // shto space normal që browseri të mund të thyejë rreshtin këtu
             html += " ";
             continue;
         }
 
-        // non-space => brenda fjales
         if (!inWord) {
             html += `<span class="td-word">`;
             inWord = true;
@@ -146,7 +130,6 @@ function renderTargetText(currentInput) {
     textEl.innerHTML = html;
 }
 
-// timer logic
 function startTimerIfNeeded() {
     if (testRunning) return;
 
@@ -176,7 +159,6 @@ function updateTimeLabel() {
     timeLabel.textContent = (elapsedMs / 1000).toFixed(1) + "s";
 }
 
-// live stats
 function updateLiveStats() {
     const minutes = elapsedMs > 0 ? elapsedMs / 60000 : 1;
     const wpm = Math.round((correctChars / 5) / minutes);
@@ -186,7 +168,6 @@ function updateLiveStats() {
     accuracyLabel.textContent = accuracy + "%";
 }
 
-// finish test
 function finishTest(reason) {
     if (!testRunning && reason === "time") return;
 
@@ -209,7 +190,6 @@ function finishTest(reason) {
         if (highScoreParagraph === null || wpm > highScoreParagraph) highScoreParagraph = wpm;
     }
 
-    // show result
     gameArea.classList.add("td-hidden");
     gameArea.classList.remove("active");
     resultArea.classList.remove("td-hidden");
@@ -225,7 +205,6 @@ function finishTest(reason) {
         currentMode === MODE_60 ? highScore60 : highScoreParagraph;
 }
 
-// INPUT EVENTS
 inputEl.addEventListener("input", () => {
     const value = inputEl.value;
     startTimerIfNeeded();
@@ -233,7 +212,6 @@ inputEl.addEventListener("input", () => {
     typedChars = value.length;
     correctChars = 0;
 
-    // për llogaritje wpm/accuracy mbajmë logjikën e vjetër: karakter më karakter
     for (let i = 0; i < value.length && i < targetText.length; i++) {
         if (value[i] === targetText[i]) correctChars++;
     }
@@ -241,14 +219,12 @@ inputEl.addEventListener("input", () => {
     renderTargetText(value);
     updateLiveStats();
 
-    // paragraph mode done
     if (
         currentMode === MODE_PARAGRAPH &&
         value.length === targetText.length &&
         value === targetText
     ) finishTest("complete");
 
-    // 60s mode: stop early if text fully typed
     if (
         currentMode === MODE_60 &&
         value.length === targetText.length &&
@@ -256,7 +232,6 @@ inputEl.addEventListener("input", () => {
     ) finishTest("complete");
 });
 
-// BUTTONS
 startBtn.addEventListener("click", () => {
     hero.classList.add("td-hidden");
     modeSelect.classList.remove("td-hidden");
@@ -276,13 +251,12 @@ changeModeBtn.addEventListener("click", () => {
     resetStats();
 });
 
-// Disable right click on text
+// per parandalimin e kopjimit, paste, pra cheating
 textEl.addEventListener("contextmenu", (e) => e.preventDefault());
 
-// Disable copy, cut, paste on text
 textEl.addEventListener("copy", (e) => e.preventDefault());
 textEl.addEventListener("cut", (e) => e.preventDefault());
 textEl.addEventListener("paste", (e) => e.preventDefault());
 
-// Disable selecting text by dragging
 textEl.addEventListener("mousedown", (e) => e.preventDefault());
+
