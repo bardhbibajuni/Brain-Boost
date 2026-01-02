@@ -1,5 +1,3 @@
-// Verbal Memory - Brain Boost
-
 const vmStartBtn = document.getElementById("vmStartBtn");
 const vmNewBtn = document.getElementById("vmNewBtn");
 const vmSeenBtn = document.getElementById("vmSeenBtn");
@@ -17,7 +15,6 @@ const vmHighLabel = document.getElementById("vmHigh");
 const vmFinalScore = document.getElementById("vmFinalScore");
 const vmFinalHigh = document.getElementById("vmFinalHigh");
 
-// ~220 mixed-difficulty English words
 const WORDS = [
 "forest","mirror","silver","planet","shadow","gentle","angle","orbit","castle","coast",
 "rapid","system","motion","expert","random","silent","bridge","timber","wander","vivid",
@@ -52,16 +49,14 @@ let highScore = 0;
 let seen = new Set();
 let currentWord = "";
 
-// Random word
+// zgjedh nje fjale random nga words me larte
 function getRandomWord() {
     return WORDS[Math.floor(Math.random() * WORDS.length)];
 }
 
-// Decide if next word is NEW or SEEN
 function generateNextWord() {
     let useSeen = false;
 
-    // If we have enough seen words, 40% chance to reuse
     if (seen.size >= 3) {
         useSeen = Math.random() < 0.40;
     }
@@ -73,7 +68,7 @@ function generateNextWord() {
         let w;
         do {
             w = getRandomWord();
-        } while (seen.has(w)); // ensure it's new
+        } while (seen.has(w));
         return w;
     }
 }
@@ -83,7 +78,6 @@ function showNextWord() {
     vmWord.textContent = currentWord;
 }
 
-// Handle NEW button
 function handleNew() {
     if (seen.has(currentWord)) {
         loseLife();
@@ -95,7 +89,6 @@ function handleNew() {
     }
 }
 
-// Handle SEEN button
 function handleSeen() {
     if (!seen.has(currentWord)) {
         loseLife();
@@ -112,7 +105,6 @@ function loseLife() {
 
     if (lives <= 0) return endGame();
 
-    // show next word
     showNextWord();
 }
 
@@ -143,7 +135,6 @@ function endGame() {
     vmHighLabel.textContent = highScore;
 }
 
-// Events
 vmStartBtn.addEventListener("click", startGame);
 vmPlayAgainBtn.addEventListener("click", startGame);
 
