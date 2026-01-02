@@ -1,5 +1,3 @@
-// Pattern Rush - Color Memory Sequence Game
-
 const prStartBtn = document.getElementById("prStartBtn");
 const prPlayAgainBtn = document.getElementById("prPlayAgainBtn");
 
@@ -23,21 +21,17 @@ let round = 1;
 let highScore = 0;
 let playingBack = false;
 
-// Tile colors
 const colors = ["blue", "red", "yellow", "green"];
 
-// Utils
 function sleep(ms) {
     return new Promise(res => setTimeout(res, ms));
 }
 
-// Generate one new step in pattern
 function addToSequence() {
     const color = colors[Math.floor(Math.random() * colors.length)];
     sequence.push(color);
 }
 
-// Flash tile visually
 async function flashTile(color) {
     const tile = document.querySelector(`.pr-tile[data-color="${color}"]`);
     tile.classList.add("flash");
@@ -45,7 +39,6 @@ async function flashTile(color) {
     tile.classList.remove("flash");
 }
 
-// Play pattern to player
 async function playSequence() {
     playingBack = true;
     prStatus.textContent = "Watch the pattern...";
@@ -61,7 +54,6 @@ async function playSequence() {
     playerIndex = 0;
 }
 
-// Handle player clicking a tile
 async function handlePlayerClick(e) {
     if (playingBack) return;
 
@@ -80,7 +72,6 @@ async function handlePlayerClick(e) {
     }
 }
 
-// Start a new round
 async function nextRound() {
     round++;
     prRoundLabel.textContent = round;
@@ -90,7 +81,6 @@ async function nextRound() {
     playSequence();
 }
 
-// Start game
 function startGame() {
     prHero.classList.add("pr-hidden");
     prResult.classList.add("pr-hidden");
@@ -108,7 +98,6 @@ function startGame() {
     playSequence();
 }
 
-// Game over
 function endGame() {
     prGame.classList.add("pr-hidden");
     prResult.classList.remove("pr-hidden");
@@ -121,11 +110,9 @@ function endGame() {
     prHighLabel.textContent = highScore;
 }
 
-// event listeners
 prStartBtn.addEventListener("click", startGame);
 prPlayAgainBtn.addEventListener("click", startGame);
 
-// tile clicks
 prTiles.forEach(tile => {
     tile.addEventListener("click", handlePlayerClick);
 });
