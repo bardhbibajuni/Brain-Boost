@@ -220,3 +220,144 @@ document.querySelectorAll('.feature-card').forEach((card) => {
         setTimeout(() => (this.style.animation = ''), 300);
     });
 });
+
+
+
+(function () {
+    const form = document.getElementById('studentApplicationForm');
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const submitBtn = form.querySelector('.btn-submit');
+        const payload = {
+            studentId: document.getElementById('studentId').value.trim(),
+            fullName: document.getElementById('fullName').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            fakulteti: document.getElementById('fakulteti').value,
+            drejtimi: document.getElementById('drejtimi').value.trim(),
+            message: document.getElementById('message').value.trim()
+        };
+
+        if (!payload.studentId || !payload.fullName || !payload.email || !payload.fakulteti || !payload.drejtimi) {
+            submitBtn.style.animation = 'glitch1 0.3s ease-in-out';
+            setTimeout(() => (submitBtn.style.animation = ''), 350);
+            return;
+        }
+
+        submitBtn.textContent = 'SENDING...';
+        submitBtn.style.background = 'linear-gradient(135deg, var(--primary-cyan), var(--primary-pink))';
+
+        setTimeout(() => {
+            submitBtn.textContent = 'APPLICATION SENT';
+            submitBtn.style.background = 'var(--primary-cyan)';
+            form.reset();
+
+            setTimeout(() => {
+                submitBtn.textContent = 'Submit Application';
+                submitBtn.style.background = '';
+            }, 3000);
+        }, 2000);
+    });
+})();
+
+(function () {
+    const wrapper = document.querySelector('.custom-select[data-target="fakulteti"]');
+    const native = document.getElementById('fakulteti');
+    if (!wrapper || !native) return;
+
+    const btn = wrapper.querySelector('.custom-select__button');
+    const label = wrapper.querySelector('.custom-select__label');
+    const menu = wrapper.querySelector('.custom-select__menu');
+
+    Array.from(native.options).forEach((opt) => {
+        const li = document.createElement('li');
+        li.className = 'custom-select__option';
+        li.tabIndex = 0;
+        li.role = 'option';
+        li.dataset.value = opt.value;
+        li.textContent = opt.textContent;
+
+        if (opt.selected) li.setAttribute('aria-selected', 'true');
+
+        if (opt.disabled && opt.value === '') {
+            li.style.opacity = '0.6';
+            li.style.pointerEvents = 'none';
+        }
+
+        menu.appendChild(li);
+    });
+
+    function open() {
+        wrapper.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        menu.focus();
+    }
+
+    function close() {
+        wrapper.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+    }
+
+    function selectValue(value, text) {
+        native.value = value;
+        label.textContent = text;
+
+        menu.querySelectorAll('.custom-select__option').forEach((o) => o.removeAttribute('aria-selected'));
+        const active = menu.querySelector(`.custom-select__option[data-value="${CSS.escape(value)}"]`);
+        if (active) active.setAttribute('aria-selected', 'true');
+    }
+
+    const initial = native.options[native.selectedIndex];
+    label.textContent = initial && initial.value ? initial.textContent : 'Choose a faculty';
+
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        wrapper.classList.contains('open') ? close() : open();
+    });
+
+    menu.addEventListener('click', (e) => {
+        const item = e.target.closest('.custom-select__option');
+        if (!item) return;
+
+        selectValue(item.dataset.value, item.textContent);
+        close();
+    });
+
+    menu.addEventListener('keydown', (e) => {
+        const items = Array.from(menu.querySelectorAll('.custom-select__option'));
+        const current = document.activeElement;
+        const idx = items.indexOf(current);
+
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            const next = items[Math.min(idx + 1, items.length - 1)];
+            next && next.focus();
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            const prev = items[Math.max(idx - 1, 0)];
+            prev && prev.focus();
+        } else if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const item = items[idx];
+            if (item) {
+                selectValue(item.dataset.value, item.textContent);
+                close();
+                btn.focus();
+            }
+        } else if (e.key === 'Escape') {
+            e.preventDefault();
+            close();
+            btn.focus();
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!wrapper.contains(e.target)) close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') close();
+    });
+})();
