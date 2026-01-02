@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brain Boost - Kursi CSS</title>
     <style>
-       
+        /* Body & Background */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #0b0b0b;
             color: #ffffff;
-            overflow-x: hidden; 
         }
 
-    
+        /* Header */
         header {
             background-color: #111;
             padding: 20px 40px;
@@ -30,7 +29,7 @@
             font-size: 32px; 
         }
 
-    
+        /* Main content */
         main { 
             max-width: 1000px; 
             margin: 50px auto; 
@@ -42,7 +41,7 @@
             font-size: 28px; 
         }
 
-        
+        /* Module cards */
         .module {
             margin-bottom: 40px;
             background: rgba(255,255,255,0.05);
@@ -63,7 +62,7 @@
             font-family: 'Courier New', monospace;
         }
 
-       
+        /* Orbs background */
         .orb { 
             position:absolute; 
             border-radius:50%; 
@@ -73,17 +72,11 @@
         }
         .orb1 { width:300px; height:300px; background:#00bfff; top:-100px; left:-120px; }
         .orb2 { width:350px; height:350px; background:#ff3366; top:200px; right:-150px; }
-        .orb3 { 
-            width:250px; 
-            height:250px; 
-            background:#ffcc00; 
-            bottom: 0; 
-            left:40%; 
-        }
+        .orb3 { width:250px; height:250px; background:#ffcc00; bottom:-100px; left:40%; }
     </style>
 </head>
 <body>
-
+    <!-- Orbs background -->
     <div class="orb orb1"></div>
     <div class="orb orb2"></div>
     <div class="orb orb3"></div>
@@ -99,7 +92,7 @@
             <h3>1. Hyrje në CSS</h3>
             <p>Mësoni bazat e CSS: si funksionon stilizimi i faqeve web, çfarë janë selektorët dhe si lidhet CSS me HTML.</p>
             <pre>
-
+/* Stili i thjeshtë për paragraf */
 p {
     color: blue;
     background-color: aquamarine;
@@ -122,13 +115,13 @@ p {
             <h3>3. Selektorët në CSS</h3>
             <p>Selektorët zgjedhin elementet që do të stilizohen.</p>
             <pre>
-
+/* Selektori me tag */
 h1 { color: yellow; }
 
-
+/* Selektori me klasë */
 .box { background: #222; padding: 20px; }
 
-
+/* Selektori me ID */
 #unik { color: cyan; }
             </pre>
         </div>
@@ -150,14 +143,14 @@ h1 { color: yellow; }
             <h3>5. Layout: Flexbox & Grid</h3>
             <p>Mësoni dy sistemet më të fuqishme për ndërtimin e faqeve moderne.</p>
             <pre>
-
+/* Flexbox */
 .container {
     display: flex;
     justify-content: center;
     gap: 20px;
 }
 
-
+/* Grid */
 .gridi {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
