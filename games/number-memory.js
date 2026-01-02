@@ -1,5 +1,3 @@
-// Number Memory - Brain Boost Version
-
 const nmStartBtn = document.getElementById("nmStartBtn");
 const nmSubmitBtn = document.getElementById("nmSubmitBtn");
 const nmPlayAgainBtn = document.getElementById("nmPlayAgainBtn");
@@ -81,7 +79,6 @@ nmStartBtn.addEventListener("click", startGame);
 nmSubmitBtn.addEventListener("click", checkAnswer);
 nmPlayAgainBtn.addEventListener("click", startGame);
 
-// ENTER key for submit
 nmInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") checkAnswer();
 });
