@@ -151,3 +151,16 @@ if (window.innerWidth > 768) {
     transform: translate(-50%, -50%);
     transition: opacity 0.3s ease;
     opacity: 0;
+  `;
+    document.body.appendChild(cursorGlow);
+
+    document.addEventListener('mousemove', (e) => {
+        cursorGlow.style.left = e.clientX + 'px';
+        cursorGlow.style.top = e.clientY + 'px';
+        cursorGlow.style.opacity = '1';
+    });
+
+    document.addEventListener('mouseleave', () => {
+        cursorGlow.style.opacity = '0';
+    });
+}
