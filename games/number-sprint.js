@@ -87,7 +87,6 @@ function updateUiStats() {
   nsAccuracyLabel.textContent = accuracy + "%";
 }
 
-// start game
 function startGame() {
   nsHero.classList.add("ns-hidden");
   nsResult.classList.add("ns-hidden");
@@ -113,7 +112,6 @@ function startGame() {
   }, 80);
 }
 
-// end game
 function endGame() {
   running = false;
   if (timerId) clearInterval(timerId);
@@ -159,19 +157,14 @@ function submitAnswer() {
   generateProblem();
 }
 
-// EVENTS
-
-// start button
 nsStartBtn.addEventListener("click", () => {
   startGame();
 });
 
-// play again button
 nsPlayAgainBtn.addEventListener("click", () => {
   startGame();
 });
 
-// enter to submit
 nsAnswerInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     submitAnswer();
