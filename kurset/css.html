@@ -1,96 +1,136 @@
 <!DOCTYPE html>
-<html lang="sq">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brain Boost - Kursi CSS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
     <style>
-        /* Body & Background */
         body {
-            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0b0b0b;
             color: #ffffff;
+            overflow-x: hidden;
         }
 
-        /* Header */
-        header {
-            background-color: #111;
-            padding: 20px 40px;
-            position: sticky;
-            top: 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            z-index: 100;
-        }
-        header h1 { 
-            color: #00bfff; 
-            margin: 0; 
-            font-size: 32px; 
+        main {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
         }
 
-        /* Main content */
-        main { 
-            max-width: 1000px; 
-            margin: 50px auto; 
-            padding: 0 20px; 
-        }
-        h2 { 
-            color: #00bfff; 
-            margin-bottom: 20px; 
-            font-size: 28px; 
+        h2 {
+            color: #2c7be5;
+            font-size: 28px;
+            padding-top: 20px;
+            margin-bottom: 20px;
         }
 
-        /* Module cards */
         .module {
             margin-bottom: 40px;
-            background: rgba(255,255,255,0.05);
-            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-        }
-        .module h3 { 
-            color: #ffcc00; 
-            margin-bottom: 10px; 
-        }
-        pre {
-            background: #1a1a1a;
-            padding: 15px;
-            border-radius: 8px;
-            color: #00ff99;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
+            padding: 20px 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
         }
 
-        /* Orbs background */
-        .orb { 
-            position:absolute; 
-            border-radius:50%; 
-            filter:blur(140px); 
-            opacity:.5; 
-            z-index:-1; 
+        .module:hover {
+            transform: translateY(-5px);
         }
-        .orb1 { width:300px; height:300px; background:#00bfff; top:-100px; left:-120px; }
-        .orb2 { width:350px; height:350px; background:#ff3366; top:200px; right:-150px; }
-        .orb3 { width:250px; height:250px; background:#ffcc00; bottom:-100px; left:40%; }
+
+        .module h3 {
+            color: #ffcc00;
+            margin-bottom: 10px;
+        }
+
+        .module p {
+            margin: 8px 0 12px 0;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        pre {
+            background-color: #1a1a1a;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            color: #00ff99;
+        }
+
+        .module ul,
+        .module ol {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .module li {
+            margin-bottom: 6px;
+        }
     </style>
 </head>
+
 <body>
-    <!-- Orbs background -->
+    <!-- backgroundi -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+    </div>
     <div class="orb orb1"></div>
     <div class="orb orb2"></div>
     <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
 
-    <header>
-        <h1>Brain Boost - Kursi CSS</h1>
-    </header>
+    <!-- navigacioni -->
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#courses">Courses</a></li>
+                <li><a href="../index.html#contact">Apply</a></li>
+            </ul>
+
+            <a href="../index.html" class="logo">Brain Boost</a>
+
+            <!--phone menu button -->
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- menu - telefon -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="mobile-menu-logo">Brain Boost</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+        </div>
+
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#courses">Courses</a></li>
+                <li><a href="../index.html#contact">Apply</a></li>
+            </ul>
+        </nav>
+    </div>
 
     <main>
-        <h2>Modulet e Kursit</h2>
+        <h2 id="type-title">Modulet e Kursit</h2>
 
         <div class="module">
             <h3>1. Hyrje në CSS</h3>
-            <p>Mësoni bazat e CSS: si funksionon stilizimi i faqeve web, çfarë janë selektorët dhe si lidhet CSS me HTML.</p>
+            <p>Mësoni bazat e CSS: si funksionon stilizimi i faqeve web, çfarë janë selektorët dhe si lidhet CSS me
+                HTML.</p>
             <pre>
 /* Stili i thjeshtë për paragraf */
 p {
@@ -105,8 +145,10 @@ p {
             <p>CSS mund të aplikohet në tre mënyra kryesore:</p>
             <ul>
                 <li><strong>Inline CSS:</strong> aplikohet direkt brenda elementit HTML për ndryshime të shpejta.</li>
-                <li><strong>Internal CSS:</strong> vendoset në tagun &lt;style&gt; brenda &lt;head&gt; të një faqe HTML.</li>
-                <li><strong>External CSS:</strong> vendoset në një file të veçantë .css dhe lidhet me HTML përmes tagut &lt;link&gt;.</li>
+                <li><strong>Internal CSS:</strong> vendoset në tagun &lt;style&gt; brenda &lt;head&gt; të një faqe HTML.
+                </li>
+                <li><strong>External CSS:</strong> vendoset në një file të veçantë .css dhe lidhet me HTML përmes tagut
+                    &lt;link&gt;.</li>
             </ul>
             <p>Këto metoda ndihmojnë në menaxhimin e stileve sipas madhësisë dhe kompleksitetit të projektit.</p>
         </div>
@@ -195,5 +237,31 @@ button:hover {
         </div>
 
     </main>
+
+    <script>
+        $(document).ready(function () {
+            $(".module").hide();
+            $("pre").hide();
+            $(".module").fadeIn(1000);
+            $("pre").slideDown(1000);
+
+            const $title = $("#type-title");
+            const text = $title.text();
+            let index = 0;
+
+            $title.text("");
+
+            function typeTitle() {
+                if (index < text.length) {
+                    $title.append(text.charAt(index));
+                    index++;
+                    setTimeout(typeTitle, 60);
+                }
+            }
+
+            typeTitle();
+        });
+    </script>
 </body>
+
 </html>
