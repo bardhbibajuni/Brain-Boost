@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Boost - Kursi jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            color: #2c7be5;
+            font-size: 28px;
+            padding-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .module {
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .module:hover {
+            transform: translateY(-5px);
+        }
+
+        .module h3 {
+            color: #ffcc00;
+            margin-bottom: 10px;
+        }
+
+        .module p {
+            margin: 8px 0 12px 0;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        pre {
+            background-color: #1a1a1a;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            color: #00ff99;
+        }
+
+        .module ul,
+        .module ol {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .module li {
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- backgroundi -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+    </div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- navigacioni -->
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#courses">Courses</a></li>
+                <li><a href="../index.html#contact">Apply</a></li>
+            </ul>
+
+            <a href="../index.html" class="logo">Brain Boost</a>
+
+            <!--phone menu button -->
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- menu - telefon -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="mobile-menu-logo">Brain Boost</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+        </div>
+
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#courses">Courses</a></li>
+                <li><a href="../index.html#contact">Apply</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <h2 id="type-title">Modulet e Kursit</h2>
+
+        <div class="module">
+            <h3>1. Hyrje në jQuery</h3>
+            <p>jQuery është një bibliotekë e JavaScript-it që e thjeshton dukshëm punën me elementet e faqes (DOM),
+                eventet dhe animacionet.
+                U krijua për të shkruar më pak kod dhe për të kryer më shumë punë.</p>
+            <p>Mund ta instaloni përmes CDN ose duke e shkarkuar në projektin tuaj.</p>
+            <p><strong>Pse përdoret jQuery?</strong></p>
+            <ul>
+                <li>Selektorë shumë të shpejtë dhe të thjeshtë</li>
+                <li>Evente të menaxhuara me vetëm një rresht kod</li>
+                <li>Efekte dhe animacione të gatshme</li>
+                <li>Mbështetje për AJAX</li>
+            </ul>
+            <pre>
+// Importimi i jQuery nga CDN
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>2. Sintaksa bazë jQuery</h3>
+            <p>Sintaksa kryesore e jQuery është: <strong>$(selector).action()</strong>. Selektori zgjedh elementin,
+                ndërsa aksioni kryen një veprim mbi të.</p>
+            <p><strong>Shembuj të tjerë:</strong></p>
+            <ul>
+                <li><code>$("p").show()</code> — shfaq paragrafët</li>
+                <li><code>$(".box").fadeOut()</code> — zhduk një element gradualisht</li>
+                <li><code>$("#btn").click(...)</code> — trajton klikimin e butonit</li>
+            </ul>
+            <pre>
+$(document).ready(function(){
+    $("p").hide();
+});
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>3. Selektorët në jQuery</h3>
+            <p>Selektorët janë baza e jQuery. Ato ju mundësojnë të aksesoni elemente në DOM po aq lehtë sa në CSS.</p>
+            <p><strong>Shembuj të avancuar selektorësh:</strong></p>
+            <ul>
+                <li><code>$("li:first")</code> — elementi i parë në listë</li>
+                <li><code>$("input:text")</code> — të gjitha inputet e tipit text</li>
+                <li><code>$("div:even")</code> — div-et me indeks çift</li>
+            </ul>
+            <pre>
+$("#id")        // selektor ID
+$(".klasa")     // selektor klase
+$("p")          // selektor elementi
+$("div p")      // selektor i brendshëm
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>4. Eventet në jQuery</h3>
+            <p>Eventet menaxhojnë ndërveprimin e përdoruesit me faqen. jQuery e thjeshton trajtimin e tyre.</p>
+            <p><strong>Eventet më të përdorshme:</strong></p>
+            <ul>
+                <li><code>click()</code> — klikim</li>
+                <li><code>hover()</code> — kalimi i mausit</li>
+                <li><code>keyup()</code> — shtypja e tastit</li>
+                <li><code>change()</code> — ndryshim vlere në input</li>
+            </ul>
+            <p><strong>Shembull praktik:</strong></p>
+            <pre>
+$("button").click(function(){
+    alert("Butoni u klikua!");
+});
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>5. Manipulimi i DOM</h3>
+            <p>Me jQuery mund të shtoni, ndryshoni dhe fshini elemente në mënyrë dinamike.</p>
+            <p><strong>Metoda kryesore:</strong></p>
+            <ul>
+                <li><code>html()</code> — merr ose vendos HTML</li>
+                <li><code>text()</code> — ndryshon tekstin</li>
+                <li><code>append()</code> — shton element në fund</li>
+                <li><code>prepend()</code> — shton element në fillim</li>
+                <li><code>remove()</code> — fshin elementin</li>
+            </ul>
+            <pre>
+$("#titulli").text("Titull i ri");
+$("#kuti").css("color", "red");
+$("ul").append("<li>Element i ri</li>");
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>6. Efektet dhe Animacionet</h3>
+            <p>jQuery ofron efekte të gatshme për krijimin e animacioneve pa ndonjë bibliotekë tjetër.</p>
+            <p><strong>Efekte të zakonshme:</strong></p>
+            <ul>
+                <li><code>fadeIn()</code> / <code>fadeOut()</code></li>
+                <li><code>slideUp()</code> / <code>slideDown()</code></li>
+                <li><code>animate()</code> — krijon animacione të personalizuara</li>
+            </ul>
+            <p><strong>Shembull animacioni të avancuar:</strong></p>
+            <pre>
+$("#kutia").fadeIn();
+$("#kutia").slideUp();
+$("#kutia").animate({ left: "200px", opacity: 0.5 }, 1000);
+            </pre>
+        </div>
+
+        <div class="module">
+            <h3>7. Projekte praktike me jQuery</h3>
+            <p>Këto ushtrime praktike ju ndihmojnë të kuptoni si të përdorni jQuery në situata të vërteta.</p>
+            <p><strong>Mini-projekte të tjera:</strong></p>
+            <ul>
+                <li>Buton që ndez/fik modalin</li>
+                <li>Validim formulari me jQuery</li>
+                <li>Slider imazhesh me animacion</li>
+            </ul>
+            <pre>
+// Ndrysho ngjyrën e një div me klikim
+$("#divi").click(function(){
+    $(this).css("background", "blue");
+});
+
+// Fsheh dhe shfaq një tekst
+$("#btn").click(function(){
+    $("#teksti").toggle();
+});
+            </pre>
+        </div>
+
+
+
+    </main>
+    <script>
+        $(document).ready(function () {
+            $(".module").hide();
+            $("pre").hide();
+            $(".module").fadeIn(1000);
+            $("pre").slideDown(1000);
+
+            const $title = $("#type-title");
+            const text = $title.text();
+            let index = 0;
+
+            $title.text("");
+
+            function typeTitle() {
+                if (index < text.length) {
+                    $title.append(text.charAt(index));
+                    index++;
+                    setTimeout(typeTitle, 60);
+                }
+            }
+
+            typeTitle();
+        });
+    </script>
+</body>
+
+</html>

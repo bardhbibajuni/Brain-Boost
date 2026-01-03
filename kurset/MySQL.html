@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Boost - Kursi MySQL</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            color: #2c7be5;
+            font-size: 28px;
+            padding-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .module {
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .module:hover {
+            transform: translateY(-5px);
+        }
+
+        .module h3 {
+            color: #ffcc00;
+            margin-bottom: 10px;
+        }
+
+        .module p {
+            margin: 8px 0 12px 0;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        pre {
+            background-color: #1a1a1a;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            color: #00ff99;
+        }
+
+        .module ul,
+        .module ol {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .module li {
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    < <!-- backgroundi -->
+        <div class="cyber-bg">
+            <div class="cyber-gradient"></div>
+        </div>
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+        <div class="grid-overlay">
+            <div class="grid-lines"></div>
+            <div class="grid-glow"></div>
+        </div>
+        <div class="scanlines"></div>
+        <div class="noise-overlay"></div>
+
+        <!-- navigacioni -->
+        <nav>
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="../index.html#games">Games</a></li>
+                    <li><a href="../index.html#courses">Courses</a></li>
+                    <li><a href="../index.html#contact">Apply</a></li>
+                </ul>
+
+                <a href="../index.html" class="logo">Brain Boost</a>
+
+                <!--phone menu button -->
+                <button class="mobile-menu-button" id="mobileMenuBtn">
+                    <div class="hamburger"><span></span><span></span><span></span></div>
+                </button>
+            </div>
+        </nav>
+
+        <!-- menu - telefon -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <a href="../index.html" class="mobile-menu-logo">Brain Boost</a>
+                <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+            </div>
+
+            <nav class="mobile-menu-nav">
+                <ul>
+                    <li><a href="../index.html#games">Games</a></li>
+                    <li><a href="../index.html#courses">Courses</a></li>
+                    <li><a href="../index.html#contact">Apply</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <main>
+            <h2 id="type-title">Modulet e Kursit</h2>
+
+            <div class="module">
+                <h3>1. Hyrje në MySQL</h3>
+                <p>MySQL është një sistem për menaxhimin e bazave të të dhënave. Në këtë modul mësoni çfarë është SQL
+                    dhe si
+                    funksionon.</p>
+                <pre>
+-- Shfaq të gjitha databazat
+SHOW DATABASES;
+</pre>
+            </div>
+
+            <div class="module">
+                <h3>2. Krijimi i databazave dhe tabelave</h3>
+                <p>Si të krijoni databazë dhe tabela brenda saj.</p>
+                <pre>
+-- Krijo një databazë
+CREATE DATABASE shkolla;
+
+-- Përdor databazën
+USE shkolla;
+
+-- Krijo një tabelë
+CREATE TABLE studentet (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    emri VARCHAR(50),
+    mbiemri VARCHAR(50),
+    mosha INT
+);
+</pre>
+            </div>
+
+            <div class="module">
+                <h3>3. INSERT - Shtimi i të dhënave</h3>
+                <p>Si të fusni të dhëna në tabelë.</p>
+                <pre>
+INSERT INTO studentet (emri, mbiemri, mosha) 
+VALUES ('Arlinda', 'Behrami', 19);
+</pre>
+            </div>
+
+            <div class="module">
+                <h3>4. SELECT - Marrja e të dhënave</h3>
+                <p>Mësoni si të merrni të dhëna nga një tabelë.</p>
+                <pre>
+-- Merr të gjitha rreshtat
+SELECT * FROM studentet;
+
+-- Merr vetëm emrin dhe moshën
+SELECT emri, mosha FROM studentet;
+</pre>
+            </div>
+
+            <div class="module">
+                <h3>5. UPDATE - Përditësimi i të dhënave</h3>
+                <p>Si të ndryshoni të dhënat ekzistuese.</p>
+                <pre>
+UPDATE studentet
+SET mosha = 20
+WHERE id = 1;
+</pre>
+            </div>
+
+            <div class="module">
+                <h3>6. DELETE - Fshirja e të dhënave</h3>
+                <p>Si të fshini rreshta nga tabela.</p>
+                <pre>
+DELETE FROM studentet
+WHERE id = 1;
+</pre>
+            </div>
+
+            <div class="module">
+                <h3>7. WHERE, AND, OR (Filtrimi)</h3>
+                <p>Filtro të dhënat sipas kushteve.</p>
+                <pre>
+SELECT * FROM studentet
+WHERE mosha > 18 AND mbiemri = 'Behrami';
+</pre>
+            </div>
+
+            <div class="module">
+                <h3>8. ORDER BY - Renditja</h3>
+                <p>Si të renditni të dhënat sipas një kolone.</p>
+                <pre>
+SELECT * FROM studentet
+ORDER BY mosha DESC;
+</pre>
+            </div>
+
+            <div class="module">
+                <h3>9. Funksionet (COUNT, MAX, MIN, AVG)</h3>
+                <p>Mësoni funksionet kryesore në MySQL.</p>
+                <pre>
+SELECT COUNT(*) FROM studentet;
+SELECT AVG(mosha) FROM studentet;
+</pre>
+            </div>
+
+            <div class="module">
+                <h3>10. JOIN - Bashkimi i tabelave</h3>
+                <p>Si të bashkoni dy tabela me të dhënat që lidhen mes vete.</p>
+                <pre>
+SELECT s.emri, k.emri_kursit
+FROM studentet s
+JOIN kurset k ON s.id = k.student_id;
+</pre>
+            </div>
+
+        </main>
+        <script>
+            $(document).ready(function () {
+                $(".module").hide();
+                $("pre").hide();
+                $(".module").fadeIn(1000);
+                $("pre").slideDown(1000);
+
+                const $title = $("#type-title");
+                const text = $title.text();
+                let index = 0;
+
+                $title.text("");
+
+                function typeTitle() {
+                    if (index < text.length) {
+                        $title.append(text.charAt(index));
+                        index++;
+                        setTimeout(typeTitle, 60);
+                    }
+                }
+
+                typeTitle();
+            });
+        </script>
+</body>
+
+</html>
