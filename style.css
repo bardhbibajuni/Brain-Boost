@@ -500,8 +500,6 @@ nav {
     transform: scale(1.05);
 }
 
-
-
 .mobile-menu-close {
     background: none;
     border: none;
@@ -601,6 +599,31 @@ nav {
 .cyber-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+}
+
+/* These were missing — they make the menu items appear */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Hero */
@@ -752,7 +775,6 @@ nav {
     left: auto;
     right: 0;
 }
-
 
 .hero-title:hover .hero-nexus::after,
 .hero-title:hover .hero-flow::after {
@@ -1028,7 +1050,6 @@ nav {
     box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
 }
 
-/* grid */
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1086,7 +1107,6 @@ nav {
     min-height: 120px;
 }
 
-/* select native */
 .contact-form select {
     width: 100%;
     padding: 1rem 1.5rem;
@@ -1117,13 +1137,11 @@ nav {
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
 }
 
-/* required star */
 .form-group label span {
     color: var(--primary-cyan);
     text-shadow: 0 0 8px var(--primary-cyan);
 }
 
-/* sr-only */
 .sr-only {
     position: absolute !important;
     width: 1px;
@@ -1136,7 +1154,6 @@ nav {
     border: 0;
 }
 
-/* custom select */
 .custom-select {
     position: relative;
 }
@@ -1226,7 +1243,6 @@ nav {
     margin-top: 1rem;
 }
 
-/* submit button */
 .btn-submit {
     width: 100%;
     cursor: pointer;
@@ -1329,7 +1345,6 @@ nav {
     transform: translateY(0);
 }
 
-/* Glitch animation used by JS */
 @keyframes glitch1 {
     0% {
         transform: translate(0, 0);
@@ -1394,6 +1409,10 @@ nav {
         display: block !important;
     }
 
+    .btn-secondary {
+        display: none;
+    }
+
     .nav-links {
         display: none;
     }
@@ -1444,6 +1463,10 @@ nav {
 }
 
 @media (max-width: 480px) {
+    .btn-secondary {
+        display: none;
+    }
+
     .mobile-menu {
         width: 90%;
         max-width: none;
