@@ -1,147 +1,160 @@
 <!DOCTYPE html>
-<html lang="sq">
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brain Boost - Kursi Node.js</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain Boost - Kursi Node.js</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
 
-body {
-font-family: 'Arial', sans-serif;
-margin: 0;
-padding: 0;
-background-color: #0d0d0d;
-color: #ffffff;
-overflow-x: hidden;
-}
+    main {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
 
-header {
-background-color: #111;
-padding: 20px 40px;
-box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-position: sticky;
-top: 0;
-z-index: 1000;
-}
+    h2 {
+      color: #2c7be5;
+      font-size: 28px;
+      padding-top: 20px;
+      margin-bottom: 20px;
+    }
 
-header h1 {
-margin: 0;
-font-size: 32px;
-color: #2c7be5;
-text-transform: uppercase;
-letter-spacing: 1px;
-}
+    .module {
+      margin-bottom: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 20px 25px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s;
+    }
 
-main {
-max-width: 1000px;
-margin: 60px auto;
-padding: 0 20px;
-}
+    .module:hover {
+      transform: translateY(-5px);
+    }
 
-h2 {
-color: #2c7be5;
-font-size: 28px;
-margin-bottom: 20px;
-}
+    .module h3 {
+      color: #ffcc00;
+      margin-bottom: 10px;
+    }
 
-.module {
-margin-bottom: 40px;
-background: rgba(255,255,255,0.05);
-border-radius: 12px;
-padding: 20px 25px;
-box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-transition: transform 0.3s;
-}
+    .module p {
+      margin: 8px 0 12px 0;
+      line-height: 1.6;
+      color: #ccc;
+    }
 
-.module:hover {
-transform: translateY(-5px);
-}
+    pre {
+      background-color: #1a1a1a;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      color: #00ff99;
+    }
 
-.module h3 {
-color: #ffcc00;
-margin-bottom: 10px;
-}
+    .module ul,
+    .module ol {
+      margin-left: 20px;
+      margin-bottom: 12px;
+    }
 
-.module p {
-margin: 8px 0 12px 0;
-line-height: 1.6;
-color: #ccc;
-}
-
-pre {
-background-color: #1a1a1a;
-padding: 15px;
-border-radius: 8px;
-overflow-x: auto;
-font-family: 'Courier New', Courier, monospace;
-font-size: 14px;
-color: #00ff99;
-}
-
-.module ul, .module ol {
-margin-left: 20px;
-margin-bottom: 12px;
-}
-
-.module li {
-margin-bottom: 6px;
-}
-
-/* Orbs background */
-.orb {
-position: absolute;
-border-radius: 50%;
-filter: blur(150px);
-opacity: 0.5;
-z-index: -1;
-}
-
-.orb1 { width: 300px; height: 300px; background: #2c7be5; top: -100px; left: -100px;}
-.orb2 { width: 400px; height: 400px; background: #ffcc00; top: 150px; right: -150px;}
-.orb3 { width: 250px; height: 250px; background: #ff3366; bottom: -100px; left: 50%; transform: translateX(-50%);}
-</style>
+    .module li {
+      margin-bottom: 6px;
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- Orbs background -->
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
-<div class="orb orb3"></div>
+  <!-- backgroundi -->
+  <div class="cyber-bg">
+    <div class="cyber-gradient"></div>
+  </div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="grid-overlay">
+    <div class="grid-lines"></div>
+    <div class="grid-glow"></div>
+  </div>
+  <div class="scanlines"></div>
+  <div class="noise-overlay"></div>
 
-<header>
-<h1>Brain Boost - Kursi Node.js</h1>
-</header>
+  <!-- navigacioni -->
+  <nav>
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li><a href="../index.html#games">Games</a></li>
+        <li><a href="../index.html#courses">Courses</a></li>
+        <li><a href="../index.html#contact">Apply</a></li>
+      </ul>
 
-<main>
-<h2>Modulet e Kursit</h2>
+      <a href="../index.html" class="logo">Brain Boost</a>
 
-<div class="module">
-<h3>1. Hyrje në Node.js</h3>
-<p>Çfarë është Node.js dhe pse përdoret për backend development.</p>
-<pre>
+      <!--phone menu button -->
+      <button class="mobile-menu-button" id="mobileMenuBtn">
+        <div class="hamburger"><span></span><span></span><span></span></div>
+      </button>
+    </div>
+  </nav>
+
+  <!-- menu - telefon -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <a href="../index.html" class="mobile-menu-logo">Brain Boost</a>
+      <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+    </div>
+
+    <nav class="mobile-menu-nav">
+      <ul>
+        <li><a href="../index.html#games">Games</a></li>
+        <li><a href="../index.html#courses">Courses</a></li>
+        <li><a href="../index.html#contact">Apply</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+    <h2 id="type-title">Modulet e Kursit</h2>
+
+    <div class="module">
+      <h3>1. Hyrje në Node.js</h3>
+      <p>Çfarë është Node.js dhe pse përdoret për backend development.</p>
+      <pre>
 // Kontrollo versionin e Node
 node -v
 
 // Kontrollo versionin e npm
 npm -v
 </pre>
-</div>
+    </div>
 
-<div class="module">
-<h3>2. Krijimi i projektit</h3>
-<p>Si të krijoni një projekt të ri Node.js me npm.</p>
-<pre>
+    <div class="module">
+      <h3>2. Krijimi i projektit</h3>
+      <p>Si të krijoni një projekt të ri Node.js me npm.</p>
+      <pre>
 mkdir projekti-im
 cd projekti-im
 
 npm init -y
 </pre>
-</div>
+    </div>
 
-<div class="module">
-<h3>3. Modules në Node.js (require / export)</h3>
-<p>Node përdor module për të organizuar kodin.</p>
-<pre>
+    <div class="module">
+      <h3>3. Modules në Node.js (require / export)</h3>
+      <p>Node përdor module për të organizuar kodin.</p>
+      <pre>
 // file: math.js
 function shuma(a, b) {
   return a + b;
@@ -152,12 +165,12 @@ module.exports = shuma;
 const shuma = require('./math');
 console.log(shuma(5, 7));
 </pre>
-</div>
+    </div>
 
-<div class="module">
-<h3>4. Krijimi i një serveri HTTP</h3>
-<p>Serveri më bazik në Node.js.</p>
-<pre>
+    <div class="module">
+      <h3>4. Krijimi i një serveri HTTP</h3>
+      <p>Serveri më bazik në Node.js.</p>
+      <pre>
 const http = require('http');
 
 const server = http.createServer((req, res) => {
@@ -169,12 +182,12 @@ server.listen(3000, () => {
   console.log('Serveri po punon në portin 3000');
 });
 </pre>
-</div>
+    </div>
 
-<div class="module">
-<h3>5. fs module – Leximi dhe shkrimi i fajllave</h3>
-<p>Si të lexoni dhe shkruani fajlla me Node.</p>
-<pre>
+    <div class="module">
+      <h3>5. fs module - Leximi dhe shkrimi i fajllave</h3>
+      <p>Si të lexoni dhe shkruani fajlla me Node.</p>
+      <pre>
 const fs = require('fs');
 
 fs.writeFileSync('test.txt', 'Pershendetje!');
@@ -182,12 +195,12 @@ const data = fs.readFileSync('test.txt', 'utf8');
 
 console.log(data);
 </pre>
-</div>
+    </div>
 
-<div class="module">
-<h3>6. npm – Instalimi i paketave</h3>
-<p>Si të instaloni dhe përdorni paketa të jashtme.</p>
-<pre>
+    <div class="module">
+      <h3>6. npm - Instalimi i paketave</h3>
+      <p>Si të instaloni dhe përdorni paketa të jashtme.</p>
+      <pre>
 npm install axios
 
 const axios = require('axios');
@@ -195,12 +208,12 @@ const axios = require('axios');
 axios.get('https://api.example.com')
   .then(res => console.log(res.data));
 </pre>
-</div>
+    </div>
 
-<div class="module">
-<h3>7. Express.js – Framework për servera</h3>
-<p>Express është framework-u më i përdorur për Node.js servers.</p>
-<pre>
+    <div class="module">
+      <h3>7. Express.js - Framework për servera</h3>
+      <p>Express është framework-u më i përdorur për Node.js servers.</p>
+      <pre>
 npm install express
 
 const express = require('express');
@@ -212,23 +225,23 @@ app.get('/', (req, res) => {
 
 app.listen(3000, () => console.log('Serveri Express po punon!'));
 </pre>
-</div>
+    </div>
 
-<div class="module">
-<h3>8. Middleware në Express</h3>
-<p>Si të përdorni middleware për logim, validime etj.</p>
-<pre>
+    <div class="module">
+      <h3>8. Middleware në Express</h3>
+      <p>Si të përdorni middleware për logim, validime etj.</p>
+      <pre>
 app.use((req, res, next) => {
   console.log('Një kërkesë u pranua!');
   next();
 });
 </pre>
-</div>
+    </div>
 
-<div class="module">
-<h3>9. Routes (Rrugët)</h3>
-<p>Si të krijoni ruterë të ndarë për endpoint-e të ndryshme.</p>
-<pre>
+    <div class="module">
+      <h3>9. Routes (Rrugët)</h3>
+      <p>Si të krijoni ruterë të ndarë për endpoint-e të ndryshme.</p>
+      <pre>
 // file: routes/studentet.js
 const express = require('express');
 const router = express.Router();
@@ -243,12 +256,12 @@ module.exports = router;
 const studentetRoute = require('./routes/studentet');
 app.use('/studentet', studentetRoute);
 </pre>
-</div>
+    </div>
 
-<div class="module">
-<h3>10. Async / Await në Node.js</h3>
-<p>Menaxhimi i operacioneve async.</p>
-<pre>
+    <div class="module">
+      <h3>10. Async / Await në Node.js</h3>
+      <p>Menaxhimi i operacioneve async.</p>
+      <pre>
 function prit(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -261,12 +274,12 @@ async function demo() {
 
 demo();
 </pre>
-</div>
+    </div>
 
-<div class="module">
-<h3>11. Lidhja me MySQL</h3>
-<p>Node.js mund të lidhet me MySQL shumë thjeshtë.</p>
-<pre>
+    <div class="module">
+      <h3>11. Lidhja me MySQL</h3>
+      <p>Node.js mund të lidhet me MySQL shumë thjeshtë.</p>
+      <pre>
 npm install mysql2
 
 const mysql = require('mysql2');
@@ -283,12 +296,12 @@ db.connect(err => {
   console.log('Lidhja me MySQL u realizua!');
 });
 </pre>
-</div>
+    </div>
 
-<div class="module">
-<h3>12. API me Express + MySQL</h3>
-<p>Krijimi i një API të thjeshtë.</p>
-<pre>
+    <div class="module">
+      <h3>12. API me Express + MySQL</h3>
+      <p>Krijimi i një API të thjeshtë.</p>
+      <pre>
 app.get('/studentet', (req, res) => {
   db.query('SELECT * FROM studentet', (err, results) => {
     if (err) throw err;
@@ -296,8 +309,34 @@ app.get('/studentet', (req, res) => {
   });
 });
 </pre>
-</div>
+    </div>
 
-</main>
+  </main>
+
+  <script>
+    $(document).ready(function () {
+      $(".module").hide();
+      $("pre").hide();
+      $(".module").fadeIn(1000);
+      $("pre").slideDown(1000);
+
+      const $title = $("#type-title");
+      const text = $title.text();
+      let index = 0;
+
+      $title.text("");
+
+      function typeTitle() {
+        if (index < text.length) {
+          $title.append(text.charAt(index));
+          index++;
+          setTimeout(typeTitle, 60);
+        }
+      }
+
+      typeTitle();
+    });
+  </script>
 </body>
+
 </html>
