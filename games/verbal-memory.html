@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Boost - Verbal Memory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="cyber-bg"><div class="cyber-gradient"></div></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay"><div class="grid-lines"></div><div class="grid-glow"></div></div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#courses">Courses</a></li>
+                <li><a href="../index.html#contact">Apply</a></li>
+            </ul>
+
+            <a href="../index.html#top" class="logo">Brain Boost</a>
+
+            <div class="nav-bottom">
+                <a href="../index.html#courses" class="btn-secondary">Access Courses</a>
+            </div>
+
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- VERBAL MEMORY -->
+    <section class="vm-section">
+
+        <!-- HERO -->
+        <div class="vm-hero">
+            <h1>Verbal Memory</h1>
+            <p>A mund t'i mbash mend fjalët?</p>
+            <button id="vmStartBtn" class="vm-btn-primary">Play</button>
+        </div>
+
+        <!-- GAME -->
+        <div id="vmGame" class="vm-game vm-hidden">
+            <div class="vm-topbar">
+                <div class="vm-pill"><span>Score:</span> <span id="vmScore">0</span></div>
+                <div class="vm-pill"><span>Lives:</span> <span id="vmLives">3</span></div>
+                <div class="vm-pill"><span>High:</span> <span id="vmHigh">0</span></div>
+            </div>
+
+            <div class="vm-card">
+                <p id="vmWord" class="vm-word">memory</p>
+            </div>
+
+            <div class="vm-buttons">
+                <button id="vmNewBtn" class="vm-btn-primary">NEW</button>
+                <button id="vmSeenBtn" class="vm-btn-secondary">SEEN</button>
+            </div>
+        </div>
+
+        <!-- RESULT -->
+        <div id="vmResult" class="vm-result vm-hidden">
+            <div class="vm-result-card">
+                <h2>Game Over</h2>
+                <p class="vm-result-main">
+                    Score: <span id="vmFinalScore">0</span>
+                </p>
+                <p class="vm-result-high">High Score: <span id="vmFinalHigh">0</span></p>
+
+                <div class="vm-result-actions">
+                    <button id="vmPlayAgainBtn" class="vm-btn-primary">Play Again</button>
+                    <a href="../index.html#games" class="vm-btn-secondary vm-btn-back">Back to Games</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="verbal-memory.js"></script>
+</body>
+</html>
