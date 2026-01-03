@@ -1500,3 +1500,42 @@ nav {
         margin: 0;
     }
 }
+
+
+@media (max-width: 768px) {
+    .stats-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+        align-items: stretch !important;
+    }
+
+    .stats-grid>.stat-item {
+        width: 100% !important;
+    }
+
+
+    .stats-grid>.stat-item:first-child {
+        order: 1 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .stats-grid>.stat-item:first-child .content {
+        display: block !important;
+        width: min(320px, 92vw) !important;
+        height: min(320px, 92vw) !important;
+        margin: 0 auto !important;
+    }
+
+
+    .stats-grid>.stat-item:nth-child(2) {
+        order: 2 !important;
+    }
+
+    .stats-grid>.stat-item:nth-child(2) .course-guide {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
