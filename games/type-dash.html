@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Boost - Type Dash</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- backgroundi -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+    </div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- navigacioni -->
+    <nav>
+        <div class="nav-container">
+
+            <ul class="nav-links">
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#courses">Courses</a></li>
+                <li><a href="../index.html#contact">Apply</a></li>
+            </ul>
+
+            <a href="../index.html#top" class="logo">Brain Boost</a>
+
+            <div class="nav-bottom">
+                <a href="../index.html#courses" class="btn-secondary">Access Courses</a>
+            </div>
+
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- menu - telefon -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="../index.html#top" class="mobile-menu-logo">Brain Boost</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+        </div>
+
+        <div class="mobile-menu-cta">
+            <a href="../index.html#courses" class="cyber-button">Access Courses</a>
+        </div>
+
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#courses">Courses</a></li>
+                <li><a href="../index.html#contact">Apply</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- TYPE DASH -->
+    <section class="type-dash-section">
+        <div class="td-hero">
+            <h1>Type Dash</h1>
+            <p>Typing challenges për më shumë WPM.</p>
+            <button id="tdStartBtn" class="td-btn-primary">Play</button>
+        </div>
+
+        <!-- mode select -->
+        <div id="tdModeSelect" class="td-mode-select td-hidden">
+            <h2>Zgjedh mënyrën</h2>
+            <p>Zgjidh nëse do test 60 sekonda apo një paragraf të plotë.</p>
+            <div class="td-mode-buttons">
+                <button id="tdMode60Btn" class="td-btn-secondary">60-Second Test</button>
+                <button id="tdModeParagraphBtn" class="td-btn-secondary">Paragraph Test</button>
+            </div>
+        </div>
+
+        <!-- game area -->
+        <div id="tdGame" class="td-game td-hidden">
+            <div class="td-top-bar">
+                <div class="td-pill"><span>Mode:</span> <span id="tdModeLabel">-</span></div>
+                <div class="td-pill"><span>Time:</span> <span id="tdTime">0.0s</span></div>
+                <div class="td-pill"><span>WPM:</span> <span id="tdWpm">0</span></div>
+                <div class="td-pill"><span>Accuracy:</span> <span id="tdAccuracy">100%</span></div>
+            </div>
+
+            <div class="td-text-card">
+                <p id="tdText" class="td-text"></p>
+            </div>
+
+            <div class="td-input-wrapper">
+                <label for="tdInput">Shkruaj tekstin këtu:</label>
+                <input id="tdInput" type="text" class="td-input" autocomplete="off" spellcheck="false"
+                    placeholder="Fillon sapo të shkruash...">
+                <p class="td-hint">Mos shtyp Enter - vetëm vazhdo të shkruash derisa të mbarojë testi.</p>
+            </div>
+        </div>
+
+        <!-- result area -->
+        <div id="tdResult" class="td-result td-hidden">
+            <div class="td-result-card">
+                <h2>Rezultati</h2>
+                <p class="td-result-main"><span id="tdResultWpm">0</span> WPM</p>
+                <p>Accuracy: <span id="tdResultAccuracy">100%</span></p>
+                <p>Time: <span id="tdResultTime">0.0s</span></p>
+                <p class="td-result-highscore">
+                    High score (<span id="tdResultModeLabel"></span>):
+                    <span id="tdResultHighScore">0</span> WPM
+                </p>
+
+                <div class="td-result-actions">
+                    <button id="tdPlayAgainBtn" class="td-btn-primary">Play Again</button>
+                    <button id="tdChangeModeBtn" class="td-btn-ghost">Change Mode</button>
+                    <a href="../index.html#games" class="td-btn-secondary td-btn-back">Back to Games</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="type-dash.js"></script>
+</body>
+
+</html>
