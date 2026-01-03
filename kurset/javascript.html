@@ -1,115 +1,167 @@
 <!DOCTYPE html>
-<html lang="sq">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brain Boost - Kursi JavaScript (i zgjeruar)</title>
+    <title>Brain Boost - Kursi JavaScript</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
     <style>
         body {
-          font-family: 'Arial', sans-serif; 
-          margin:0;
-          padding:0; 
-          background:#0d0d0d; 
-          color:#fff;
-      }
-        header {
-          background:#111; 
-          padding:20px 40px; 
-          box-shadow:0 2px 10px rgba(0,0,0,0.5); 
-          position:sticky; 
-          top:0; 
-          z-index:1000;
-      }
-      
-        header h1 {margin:0; 
-          font-size:32px; 
-          color:#2c7be5; 
-          text-transform:uppercase;
-          letter-spacing:1px;
-      }
-      
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
         main {
-          max-width:1000px; 
-          margin:60px auto; 
-          padding:0 20px;
-      }
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
         h2 {
-          color:#2c7be5; 
-          font-size:28px; 
-          margin-bottom:20px;
-      }
+            color: #2c7be5;
+            font-size: 28px;
+            padding-top: 20px;
+            margin-bottom: 20px;
+        }
+
         .module {
-          margin-bottom:40px; 
-          background:rgba(255,255,255,0.05); 
-          border-radius:12px; 
-          padding:20px 25px; 
-          box-shadow:0 4px 20px rgba(0,0,0,0.5); 
-          transition:0.3s;
-      }
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
         .module:hover {
-          transform:translateY(-5px);
-      }
+            transform: translateY(-5px);
+        }
+
         .module h3 {
-          color:#ffcc00; 
-          margin-bottom:10px;
-      }
-      
+            color: #ffcc00;
+            margin-bottom: 10px;
+        }
+
         .module p {
-          color:#ccc; 
-          line-height:1.6; 
-          margin-bottom:10px;
-      }
-      
-      
+            margin: 8px 0 12px 0;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
         pre {
-          background:#1a1a1a; 
-          padding:15px; 
-          border-radius:8px; 
-          overflow-x:auto; 
-          font-family:'Courier New'; 
-          font-size:14px; 
-          color:#00ff99;
-      }
+            background-color: #1a1a1a;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            color: #00ff99;
+        }
+
+        .module ul,
+        .module ol {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .module li {
+            margin-bottom: 6px;
+        }
     </style>
 </head>
+
 <body>
-<header><h1>Brain Boost - Kursi i JavaScript</h1></header>
-<main>
-<h2>Modulet e Kursit</h2>
+    <!-- backgroundi -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+    </div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
 
-<div class="module">
-<h3>1. Hyrje në JavaScript</h3>
-<p>JavaScript është gjuha kryesore për ndërtimin e faqeve dinamike. Ajo ekzekutohet në shfletues dhe mund të modifikojë HTML, CSS, të dërgojë kërkesa në server dhe të krijojë aplikacione interaktive.</p>
-<p><strong>Çfarë mund të bëni me JavaScript?</strong></p>
-<ul>
-<li>Të ndryshoni përmbajtjen e faqes pa e rifreskuar</li>
-<li>Të validoni forma</li>
-<li>Të krijoni animacione dhe galeri</li>
-<li>Të komunikoni me serverin përmes AJAX / Fetch API</li>
-</ul>
-<pre>console.log("Mirësevini në JavaScript!");
+    <!-- navigacioni -->
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#courses">Courses</a></li>
+                <li><a href="../index.html#contact">Apply</a></li>
+            </ul>
+
+            <a href="../index.html" class="logo">Brain Boost</a>
+
+            <!--phone menu button -->
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- menu - telefon -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="mobile-menu-logo">Brain Boost</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+        </div>
+
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#courses">Courses</a></li>
+                <li><a href="../index.html#contact">Apply</a></li>
+            </ul>
+        </nav>
+    </div>
+    <main>
+        <h2 id="type-title">Modulet e Kursit</h2>
+
+        <div class="module">
+            <h3>1. Hyrje në JavaScript</h3>
+            <p>JavaScript është gjuha kryesore për ndërtimin e faqeve dinamike. Ajo ekzekutohet në shfletues dhe mund të
+                modifikojë HTML, CSS, të dërgojë kërkesa në server dhe të krijojë aplikacione interaktive.</p>
+            <p><strong>Çfarë mund të bëni me JavaScript?</strong></p>
+            <ul>
+                <li>Të ndryshoni përmbajtjen e faqes pa e rifreskuar</li>
+                <li>Të validoni forma</li>
+                <li>Të krijoni animacione dhe galeri</li>
+                <li>Të komunikoni me serverin përmes AJAX / Fetch API</li>
+            </ul>
+            <pre>console.log("Mirësevini në JavaScript!");
 alert("JavaScript po funksionon!");</pre>
-</div>
+        </div>
 
-<div class="module">
-<h3>2. Variablat dhe tipet e të dhënave</h3>
-<p>JavaScript ka tre mënyra kryesore deklarimi: <strong>var</strong>, <strong>let</strong> dhe <strong>const</strong>. Rekomandohet të përdorni let dhe const.</p>
-<p><strong>Tipet primitive:</strong> string, number, boolean, null, undefined, bigint, symbol.</p>
-<pre>let emri = "Ardita";
+        <div class="module">
+            <h3>2. Variablat dhe tipet e të dhënave</h3>
+            <p>JavaScript ka tre mënyra kryesore deklarimi: <strong>var</strong>, <strong>let</strong> dhe
+                <strong>const</strong>. Rekomandohet të përdorni let dhe const.
+            </p>
+            <p><strong>Tipet primitive:</strong> string, number, boolean, null, undefined, bigint, symbol.</p>
+            <pre>let emri = "Ardita";
 const mosha = 21;
 let nota = 9.5;
 console.log(`${emri} ka notën ${nota}`);
 
 let booleanTest = true;
 console.log(typeof booleanTest);</pre>
-</div>
+        </div>
 
-<div class="module">
-<h3>3. Kushtet dhe ciklet</h3>
-<p>Kushtet kontrollojnë rrjedhën e programit. Ciklet përsërisin logjikën disa herë.</p>
-<p><strong>Kushtet kryesore:</strong> if, else if, else, switch.</p>
-<p><strong>Ciklet:</strong> for, while, do-while.</p>
-<pre>let numri = 7;
+        <div class="module">
+            <h3>3. Kushtet dhe ciklet</h3>
+            <p>Kushtet kontrollojnë rrjedhën e programit. Ciklet përsërisin logjikën disa herë.</p>
+            <p><strong>Kushtet kryesore:</strong> if, else if, else, switch.</p>
+            <p><strong>Ciklet:</strong> for, while, do-while.</p>
+            <pre>let numri = 7;
 if (numri % 2 === 0) console.log("Çift");
 else console.log("Tek");
 
@@ -120,13 +172,14 @@ do {
     console.log("x = " + x);
     x++;
 } while (x < 3);</pre>
-</div>
+        </div>
 
-<div class="module">
-<h3>4. Funksionet</h3>
-<p>Funksionet organizojnë kodin dhe e bëjnë atë të ripërdorshëm. Mund të jenë klasike ose funksione shigjetë.</p>
-<p><strong>Funksione shigjetë:</strong> janë më të shkurtra dhe moderne.</p>
-<pre>function pershendet(emri) {
+        <div class="module">
+            <h3>4. Funksionet</h3>
+            <p>Funksionet organizojnë kodin dhe e bëjnë atë të ripërdorshëm. Mund të jenë klasike ose funksione
+                shigjetë.</p>
+            <p><strong>Funksione shigjetë:</strong> janë më të shkurtra dhe moderne.</p>
+            <pre>function pershendet(emri) {
     console.log("Përshëndetje " + emri);
 }
 
@@ -134,13 +187,13 @@ const shuma = (a, b) => a + b;
 
 pershendet("Ardita");
 console.log(shuma(5, 4));</pre>
-</div>
+        </div>
 
-<div class="module">
-<h3>5. Arrays dhe Objects</h3>
-<p>Arrays ruhen lista vlerash, ndërsa objects ruhajnë të dhëna të strukturuara me çelësa dhe vlera.</p>
-<p><strong>Metoda të dobishme të array:</strong> map(), filter(), forEach(), reduce().</p>
-<pre>let frutat = ["Mollë", "Banane", "Kivi"];
+        <div class="module">
+            <h3>5. Arrays dhe Objects</h3>
+            <p>Arrays ruhen lista vlerash, ndërsa objects ruhajnë të dhëna të strukturuara me çelësa dhe vlera.</p>
+            <p><strong>Metoda të dobishme të array:</strong> map(), filter(), forEach(), reduce().</p>
+            <pre>let frutat = ["Mollë", "Banane", "Kivi"];
 frutat.map(f => console.log(f));
 
 let student = {
@@ -149,32 +202,32 @@ let student = {
     drejtimi: "Shkenca Kompjuterike"
 };
 console.log(student.drejtimi);</pre>
-</div>
+        </div>
 
-<div class="module">
-<h3>6. DOM - Manipulimi i faqes web</h3>
-<p>DOM ju lejon të ndryshoni elementet HTML në kohë reale.</p>
-<p><strong>Metoda kryesore:</strong> getElementById, querySelector, classList, innerText, innerHTML.</p>
-<pre>let titulli = document.querySelector("#titulli");
+        <div class="module">
+            <h3>6. DOM - Manipulimi i faqes web</h3>
+            <p>DOM ju lejon të ndryshoni elementet HTML në kohë reale.</p>
+            <p><strong>Metoda kryesore:</strong> getElementById, querySelector, classList, innerText, innerHTML.</p>
+            <pre>let titulli = document.querySelector("#titulli");
 titulli.innerText = "Titulli u ndryshua!";
 
 document.body.style.backgroundColor = "#222";</pre>
-</div>
+        </div>
 
-<div class="module">
-<h3>7. Eventet</h3>
-<p>Eventet ju lejojnë të reagoni ndaj ndërveprimeve të përdoruesit.</p>
-<p><strong>Shembuj events:</strong> click, mouseover, keyup, input.</p>
-<pre>const btn = document.getElementById("butoni");
+        <div class="module">
+            <h3>7. Eventet</h3>
+            <p>Eventet ju lejojnë të reagoni ndaj ndërveprimeve të përdoruesit.</p>
+            <p><strong>Shembuj events:</strong> click, mouseover, keyup, input.</p>
+            <pre>const btn = document.getElementById("butoni");
 btn.addEventListener("click", () => {
     alert("U klikua!");
 });</pre>
-</div>
+        </div>
 
-<div class="module">
-<h3>8. Projekte praktike</h3>
-<p>Këto janë ushtrime të vogla për të forcuar njohuritë.</p>
-<pre>// Kalkulator i thjeshtë
+        <div class="module">
+            <h3>8. Projekte praktike</h3>
+            <p>Këto janë ushtrime të vogla për të forcuar njohuritë.</p>
+            <pre>// Kalkulator i thjeshtë
 function mbledhja(a, b) { return a + b; }
 console.log(mbledhja(10, 5));
 
@@ -186,9 +239,9 @@ console.log(fjala.length);
 let lista = [1,2,3,4,5,6];
 let cift = lista.filter(n => n % 2 === 0);
 console.log(cift);</pre>
-</div>
+        </div>
 
-</main>
+    </main>
     <title>Brain Boost-Kursi JavaScript</title>
     <style>
         body {
@@ -203,7 +256,7 @@ console.log(cift);</pre>
         header {
             background-color: #111;
             padding: 20px 40px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -231,10 +284,10 @@ console.log(cift);</pre>
 
         .module {
             margin-bottom: 40px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
             padding: 20px 25px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s;
         }
 
@@ -278,7 +331,7 @@ console.log(cift);</pre>
             background-color: #1a5bb8;
         }
 
-       
+
         .orb {
             position: absolute;
             border-radius: 50%;
@@ -287,39 +340,61 @@ console.log(cift);</pre>
             z-index: -1;
         }
 
-        .orb1 { width: 300px; height: 300px; background: #2c7be5; top: -100px; left: -100px;}
-        .orb2 { width: 400px; height: 400px; background: #ffcc00; top: 150px; right: -150px;}
-        .orb3 { width: 250px; height: 250px; background: #ff3366; bottom: 0; left: 50%; transform: translateX(-50%);}
+        .orb1 {
+            width: 300px;
+            height: 300px;
+            background: #2c7be5;
+            top: -100px;
+            left: -100px;
+        }
+
+        .orb2 {
+            width: 400px;
+            height: 400px;
+            background: #ffcc00;
+            top: 150px;
+            right: -150px;
+        }
+
+        .orb3 {
+            width: 250px;
+            height: 250px;
+            background: #ff3366;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     </style>
-</head>
-<body>
-   
-    <div class="orb orb1"></div>
-    <div class="orb orb2"></div>
-    <div class="orb orb3"></div>
+    </head>
 
-    <header>
-        <h1>Brain Boost - Kursi JavaScript</h1>
-    </header>
+    <body>
 
-    <main>
-        <h2>Modulet e Kursit</h2>
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
 
-        <div class="module">
-            <h3>1. Hyrje në JavaScript</h3>
-            <p>JavaScript është gjuha kryesore e web-it. Ky modul shpjegon çfarë është JavaScript,
-                ku përdoret dhe si ekzekutohet në browser. Kështu do të krijoni skriptin tuaj të parë.</p>
-            <pre>
+        <header>
+            <h1>Brain Boost - Kursi JavaScript</h1>
+        </header>
+
+        <main>
+            <h2>Modulet e Kursit</h2>
+
+            <div class="module">
+                <h3>1. Hyrje në JavaScript</h3>
+                <p>JavaScript është gjuha kryesore e web-it. Ky modul shpjegon çfarë është JavaScript,
+                    ku përdoret dhe si ekzekutohet në browser. Kështu do të krijoni skriptin tuaj të parë.</p>
+                <pre>
 // Programi i parë në JavaScript
 console.log("Mirë se vini në JavaScript!");
             </pre>
-        </div>
+            </div>
 
-        <div class="module">
-            <h3>2. Variablat dhe tipet e të dhënave</h3>
-            <p>Do të mësoni dallimin mes var, let dhe const,
-               si funksionojnë stringjet, numrat, bool-et dhe tipet e tjera të thjeshta.</p>
-            <pre>
+            <div class="module">
+                <h3>2. Variablat dhe tipet e të dhënave</h3>
+                <p>Do të mësoni dallimin mes var, let dhe const,
+                    si funksionojnë stringjet, numrat, bool-et dhe tipet e tjera të thjeshta.</p>
+                <pre>
 let emri="Ardita";
 const mosha=21;
 
@@ -328,12 +403,13 @@ console.log(emri + " ka " + mosha + " vjet.");
 let pi=3.1415;
 console.log("Vlera e pi është: " + pi);
             </pre>
-        </div>
+            </div>
 
-        <div class="module">
-            <h3>3. Kushtet dhe ciklet</h3>
-            <p>JavaScript përdor if/else, switch, for, while dhe struktura të tjera për kontrollin e rrjedhës së kodit.</p>
-            <pre>
+            <div class="module">
+                <h3>3. Kushtet dhe ciklet</h3>
+                <p>JavaScript përdor if/else, switch, for, while dhe struktura të tjera për kontrollin e rrjedhës së
+                    kodit.</p>
+                <pre>
 let numri=5;
 
 if (numri>0) {
@@ -356,13 +432,13 @@ while (n<5) {
 
 console.log("Shuma: " + shuma);
             </pre>
-        </div>
+            </div>
 
-        <div class="module">
-            <h3>4. Funksionet</h3>
-            <p>Funksionet janë një pjesë thelbësore e JavaScript. Do të shihni funksione normale,
-               arrow functions dhe funksione për kthimin e vlerave.</p>
-            <pre>
+            <div class="module">
+                <h3>4. Funksionet</h3>
+                <p>Funksionet janë një pjesë thelbësore e JavaScript. Do të shihni funksione normale,
+                    arrow functions dhe funksione për kthimin e vlerave.</p>
+                <pre>
 function pershendetje() {
     console.log("Përshëndetje!");
 }
@@ -374,13 +450,13 @@ const shuma = (a,b) => {
 pershendetje();
 console.log(shuma(5,3));
             </pre>
-        </div>
+            </div>
 
-        <div class="module">
-            <h3>5. Arrays dhe Objects</h3>
-            <p>JavaScript është shumë fleksibël me strukturat e të dhënave. Do të përdorni arrays,
-               objects dhe metoda të ndryshme për manipulimin e tyre.</p>
-            <pre>
+            <div class="module">
+                <h3>5. Arrays dhe Objects</h3>
+                <p>JavaScript është shumë fleksibël me strukturat e të dhënave. Do të përdorni arrays,
+                    objects dhe metoda të ndryshme për manipulimin e tyre.</p>
+                <pre>
 let frutat = ["Mollë","Banane","Dardhë"];
 
 frutat.forEach(f =>console.log(f));
@@ -392,13 +468,13 @@ let person={
 
 console.log(person.emri);
             </pre>
-        </div>
+            </div>
 
-        <div class="module">
-            <h3>6. DOM-Manipulimi i elementeve</h3>
-            <p>DOM ju lejon të ndryshoni HTML dhe CSS me JavaScript.
-               Ky modul ju mëson të krijoni, lexoni dhe manipuloni elemente.</p>
-            <pre>
+            <div class="module">
+                <h3>6. DOM-Manipulimi i elementeve</h3>
+                <p>DOM ju lejon të ndryshoni HTML dhe CSS me JavaScript.
+                    Ky modul ju mëson të krijoni, lexoni dhe manipuloni elemente.</p>
+                <pre>
 // Ndërro tekstin e një elementi
 document.getElementById("titulli").innerText = "Teksti i ri";
 
@@ -407,12 +483,12 @@ let p=document.createElement("p");
 p.innerText="Ky paragraf u shtua me JS";
 document.body.appendChild(p);
             </pre>
-        </div>
+            </div>
 
-        <div class="module">
-            <h3>7. Projekte praktike</h3>
-            <p>Në fund do të zbatoni gjithçka që keni mësuar duke ndërtuar mini-projekte.</p>
-            <pre>
+            <div class="module">
+                <h3>7. Projekte praktike</h3>
+                <p>Në fund do të zbatoni gjithçka që keni mësuar duke ndërtuar mini-projekte.</p>
+                <pre>
 // Shembull: Trego nëse një numër është çift apo tek
 let num=8;
 
@@ -430,8 +506,34 @@ numrat.forEach(n =>total+=n);
 
 console.log("Shuma: "+ total);
             </pre>
-        </div>
+            </div>
 
-    </main>
-</body>
+        </main>
+
+        <script>
+            $(document).ready(function () {
+                $(".module").hide();
+                $("pre").hide();
+                $(".module").fadeIn(1000);
+                $("pre").slideDown(1000);
+
+                const $title = $("#type-title");
+                const text = $title.text();
+                let index = 0;
+
+                $title.text("");
+
+                function typeTitle() {
+                    if (index < text.length) {
+                        $title.append(text.charAt(index));
+                        index++;
+                        setTimeout(typeTitle, 60);
+                    }
+                }
+
+                typeTitle();
+            });
+        </script>
+    </body>
+
 </html>

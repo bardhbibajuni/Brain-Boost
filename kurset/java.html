@@ -1,36 +1,18 @@
 <!DOCTYPE html>
-<html lang="sq">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brain Boost-Kursi Java</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
     <style>
-     
         body {
-            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0d0d0d;
             color: #ffffff;
             overflow-x: hidden;
-        }
-
-    
-        header {
-            background-color: #111;
-            padding: 20px 40px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 32px;
-            color: #2c7be5;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         main {
@@ -42,15 +24,16 @@
         h2 {
             color: #2c7be5;
             font-size: 28px;
+            padding-top: 20px;
             margin-bottom: 20px;
         }
 
         .module {
             margin-bottom: 40px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
             padding: 20px 25px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s;
         }
 
@@ -79,22 +62,8 @@
             color: #00ff99;
         }
 
-        .btn-primary {
-            display: inline-block;
-            background-color: #2c7be5;
-            color: #fff;
-            padding: 10px 18px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .btn-primary:hover {
-            background-color: #1a5bb8;
-        }
-
-        .module ul, .module ol {
+        .module ul,
+        .module ol {
             margin-left: 20px;
             margin-bottom: 12px;
         }
@@ -102,39 +71,67 @@
         .module li {
             margin-bottom: 6px;
         }
-
-        /* Orbs background */
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.5;
-            z-index: -1;
-        }
-
-        .orb1 { width: 300px; height: 300px; background: #2c7be5; top: -100px; left: -100px;}
-        .orb2 { width: 400px; height: 400px; background: #ffcc00; top: 150px; right: -150px;}
-        .orb3 { width: 250px; height: 250px; background: #ff3366; bottom: -100px; left: 50%; transform: translateX(-50%);}
     </style>
 </head>
+
 <body>
-    <!-- Orbs background -->
+    <!-- backgroundi -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+    </div>
     <div class="orb orb1"></div>
     <div class="orb orb2"></div>
     <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
 
-    <header>
-        <h1>Brain Boost - Kursi i Java</h1>
-    </header>
+    <!-- navigacioni -->
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#courses">Courses</a></li>
+                <li><a href="../index.html#contact">Apply</a></li>
+            </ul>
+
+            <a href="../index.html" class="logo">Brain Boost</a>
+
+            <!--phone menu button -->
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- menu - telefon -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="mobile-menu-logo">Brain Boost</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+        </div>
+
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#courses">Courses</a></li>
+                <li><a href="../index.html#contact">Apply</a></li>
+            </ul>
+        </nav>
+    </div>
 
     <main>
-        <h2>Modulet e Kursit</h2>
+        <h2 id="type-title">Modulet e Kursit</h2>
 
         <div class="module">
             <h3>1. Hyrje në Java</h3>
             <p>Ky modul ju prezanton me Java dhe konceptet bazë të programimit
-                të orientuar ne objekte. Do të mësoni pse Java është një gjuhë e fuqishme 
-                dhe e përdorur gjerësisht, si të instaloni JDK dhe si të krijoni programin 
+                të orientuar ne objekte. Do të mësoni pse Java është një gjuhë e fuqishme
+                dhe e përdorur gjerësisht, si të instaloni JDK dhe si të krijoni programin
                 tuaj të parë.</p>
             <pre>
 // Programi i parë në Java
@@ -148,7 +145,9 @@ public class Main {
 
         <div class="module">
             <h3>2. Sintaksa bazë dhe variabla</h3>
-            <p>Në këtë modul do të mësoni bazat e Java: variablat, llojet e të dhënave, operatorët dhe mënyrën e printimit në ekran. Kjo do t'ju ndihmojë të krijoni programe të thjeshta dhe të kuptoni strukturën e kodit.</p>
+            <p>Në këtë modul do të mësoni bazat e Java: variablat, llojet e të dhënave, operatorët dhe mënyrën e
+                printimit në ekran. Kjo do t'ju ndihmojë të krijoni programe të thjeshta dhe të kuptoni strukturën e
+                kodit.</p>
             <pre>
 String emri = "Ardita";
 int mosha = 21;
@@ -161,7 +160,9 @@ System.out.println("Vlera e pi: " + pi);
 
         <div class="module">
             <h3>3. Kushtet dhe ciklet</h3>
-            <p>Ky modul ju ndihmon të përdorni kushtet if/else dhe ciklet for/while për të kontrolluar rrjedhën e programit. Do të praktikoni mënyra të ndryshme për të përsëritur veprime dhe për të zgjidhur probleme të thjeshta logjike.</p>
+            <p>Ky modul ju ndihmon të përdorni kushtet if/else dhe ciklet for/while për të kontrolluar rrjedhën e
+                programit. Do të praktikoni mënyra të ndryshme për të përsëritur veprime dhe për të zgjidhur probleme të
+                thjeshta logjike.</p>
             <pre>
 int numri = 5;
 if (numri > 0) {
@@ -186,7 +187,9 @@ System.out.println("Shuma e numrave: " + shuma);
 
         <div class="module">
             <h3>4. Funksionet dhe Metodat</h3>
-            <p>Funksionet (metodat) i bëjnë programet më të organizuara dhe ripërdorshme. Në këtë modul do të mësoni si të krijoni metoda të thjeshta me dhe pa parametra, si të ktheni vlera dhe si t'i përdorni për të strukturuar programin tuaj.</p>
+            <p>Funksionet (metodat) i bëjnë programet më të organizuara dhe ripërdorshme. Në këtë modul do të mësoni si
+                të krijoni metoda të thjeshta me dhe pa parametra, si të ktheni vlera dhe si t'i përdorni për të
+                strukturuar programin tuaj.</p>
             <pre>
 public class Main {
     public static void pershendetje() {
@@ -207,7 +210,9 @@ public class Main {
 
         <div class="module">
             <h3>5. Arrays dhe koleksione të tjera</h3>
-            <p>Ky modul ju mëson strukturat bazë të të dhënave në Java: arrays, ArrayList dhe HashMap. Do të praktikoni manipulimin, shtimin dhe leximin e elementeve për të menaxhuar informacionin brenda programeve tuaja.</p>
+            <p>Ky modul ju mëson strukturat bazë të të dhënave në Java: arrays, ArrayList dhe HashMap. Do të praktikoni
+                manipulimin, shtimin dhe leximin e elementeve për të menaxhuar informacionin brenda programeve tuaja.
+            </p>
             <pre>
 String[] frutat = {"Mollë", "Banane", "Dardhë"};
 for(String fruta : frutat) {
@@ -225,7 +230,9 @@ for(String item : lista) {
 
         <div class="module">
             <h3>6. Libraritë standarde dhe paketa</h3>
-            <p>Libraritë standarde në Java ofrojnë metoda të gatshme për manipulim teksti, llogaritje matematikore dhe punë me koleksione. Ky modul ju ndihmon të kurseni kohë dhe të bëni programim më efikas duke përdorur klasa dhe paketa të gatshme.</p>
+            <p>Libraritë standarde në Java ofrojnë metoda të gatshme për manipulim teksti, llogaritje matematikore dhe
+                punë me koleksione. Ky modul ju ndihmon të kurseni kohë dhe të bëni programim më efikas duke përdorur
+                klasa dhe paketa të gatshme.</p>
             <pre>
 import java.util.Random;
 
@@ -239,9 +246,9 @@ System.out.println("Vlera e sqrt(25): " + Math.sqrt(25));
         <div class="module">
             <h3>7. Projekte praktike</h3>
             <p>Në këtë modul do të praktikoni gjithçka të mësuar duke krijuar projekte të vogla dhe funksionale.
-                 Kjo do t'ju ndihmojë të aplikoni teorinë në probleme reale, 
-                 duke përdorur cikle, metoda dhe koleksione për të zgjidhur probleme 
-                 të ndryshme.</p>
+                Kjo do t'ju ndihmojë të aplikoni teorinë në probleme reale,
+                duke përdorur cikle, metoda dhe koleksione për të zgjidhur probleme
+                të ndryshme.</p>
             <pre>
 int numri = 8;
 if(numri % 2 == 0) {
@@ -261,5 +268,30 @@ System.out.println("Shuma e array: " + shuma);
         </div>
 
     </main>
+    <script>
+        $(document).ready(function () {
+            $(".module").hide();
+            $("pre").hide();
+            $(".module").fadeIn(1000);
+            $("pre").slideDown(1000);
+
+            const $title = $("#type-title");
+            const text = $title.text();
+            let index = 0;
+
+            $title.text("");
+
+            function typeTitle() {
+                if (index < text.length) {
+                    $title.append(text.charAt(index));
+                    index++;
+                    setTimeout(typeTitle, 60);
+                }
+            }
+
+            typeTitle();
+        });
+    </script>
 </body>
+
 </html>
