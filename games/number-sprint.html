@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Boost - Number Sprint</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- backgroundi -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+    </div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- navigacioni -->
+    <nav>
+        <div class="nav-container">
+
+            <ul class="nav-links">
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#courses">Courses</a></li>
+                <li><a href="../index.html#contact">Apply</a></li>
+            </ul>
+
+            <a href="../index.html#top" class="logo">Brain Boost</a>
+
+            <div class="nav-bottom">
+                <a href="../index.html#courses" class="btn-secondary">Access Courses</a>
+            </div>
+
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- menu - telefon -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="../index.html#top" class="mobile-menu-logo">Brain Boost</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+        </div>
+
+        <div class="mobile-menu-cta">
+            <a href="../index.html#courses" class="cyber-button">Access Courses</a>
+        </div>
+
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#courses">Courses</a></li>
+                <li><a href="../index.html#contact">Apply</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- NUMBER SPRINT -->
+    <section class="number-sprint-section">
+        <!-- Hero -->
+        <div class="ns-hero">
+            <h1>Number Sprint</h1>
+            <p>Matematikë e shpejtë, speed + accuracy.</p>
+            <button id="nsStartBtn" class="ns-btn-primary">Play</button>
+        </div>
+
+        <!-- Game area -->
+        <div id="nsGame" class="ns-game ns-hidden">
+            <div class="ns-top-bar">
+                <div class="ns-pill">
+                    <span>Time:</span>
+                    <span id="nsTime">60.0s</span>
+                </div>
+                <div class="ns-pill">
+                    <span>Score:</span>
+                    <span id="nsScore">0</span>
+                </div>
+                <div class="ns-pill">
+                    <span>Accuracy:</span>
+                    <span id="nsAccuracy">100%</span>
+                </div>
+            </div>
+
+            <div class="ns-problem-card">
+                <p class="ns-label">Problem:</p>
+                <div id="nsProblem" class="ns-problem-text">3 + 4 = ?</div>
+            </div>
+
+            <div class="ns-input-wrapper">
+                <label for="nsAnswer">Përgjigjja jote:</label>
+                <input id="nsAnswer" type="number" inputmode="numeric" autocomplete="off" class="ns-input"
+                    placeholder="Shkruaj përgjigjen dhe shtyp Enter">
+                <p class="ns-hint">Shtyp Enter për të dërguar përgjigjen sa më shpejt.</p>
+            </div>
+
+            <div id="nsFeedback" class="ns-feedback"></div>
+        </div>
+
+        <!-- Result -->
+        <div id="nsResult" class="ns-result ns-hidden">
+            <div class="ns-result-card">
+                <h2>Rezultati</h2>
+                <p class="ns-result-main"><span id="nsResultScore">0</span> pikë</p>
+                <p>Accuracy: <span id="nsResultAccuracy">100%</span></p>
+                <p>Pyetje të sakta: <span id="nsResultCorrect">0</span></p>
+                <p>Pyetje gjithsej: <span id="nsResultTotal">0</span></p>
+                <p class="ns-result-highscore">
+                    High score: <span id="nsResultHighScore">0</span> pikë
+                </p>
+
+                <div class="ns-result-actions">
+                    <button id="nsPlayAgainBtn" class="ns-btn-primary">Play Again</button>
+                    <a href="../index.html#games" class="ns-btn-secondary ns-btn-back">Back to Games</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="number-sprint.js"></script>
+</body>
+
+</html>
