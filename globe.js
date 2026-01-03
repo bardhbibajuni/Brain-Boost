@@ -5,9 +5,9 @@ const tagLinks = {
     HTML: 'kurset/HTML.html',
     C: 'kurset/c.html',
     'C++': 'kurset/c++.html',
-    React: 'kurset/Reach.html',
-    Python: 'kurset/Python.html',
-    Java: 'kurset/Java.html',
+    React: 'kurset/React.html',
+    Python: 'kurset/python.html',
+    Java: 'kurset/java.html',
     'Node.js': 'kurset/Node.js.html',
     MySQL: 'kurset/MySQL.html',
     jQuery: 'kurset/jQuery.html'
