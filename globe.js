@@ -1,4 +1,4 @@
-
+/*course links / tags*/
 
 const tagLinks = {
     JavaScript: "kurset/javascript.html",
@@ -15,7 +15,7 @@ const tagLinks = {
 };
 
 const myTags = Object.keys(tagLinks);
-
+/*  tag globe/ style size      */
 function initTagGlobe() {
     if (typeof TagCloud !== "function") {
         console.warn("TagCloud not available yet.");
@@ -27,7 +27,7 @@ function initTagGlobe() {
 
    
     host.innerHTML = "";
-
+/*    responsive radius / mrena div */
     const w = window.innerWidth;
 
     const maxRadius = w <= 480 ? 110 : w <= 768 ? 130 : 250;
@@ -36,7 +36,7 @@ function initTagGlobe() {
     const fittedRadius = Math.floor(containerWidth / 2) - 24;
 
     const radius = Math.max(85, Math.min(maxRadius, fittedRadius));
-
+/*  globi      */
     TagCloud(".content", myTags, {
         radius,
         maxSpeed: "fast",
@@ -49,7 +49,7 @@ function initTagGlobe() {
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     host.style.color = randomColor;
 }
-
+/*   tag globe / click to open     */
 function setupTagClicks() {
     const container = document.querySelector(".content");
     if (!container) return;
@@ -67,7 +67,7 @@ function setupTagClicks() {
     });
 }
 
-
+/*     mobile menu open/close   */
 function initializeMobileMenu() {
     const btn = document.getElementById("mobileMenuBtn");
     const menu = document.getElementById("mobileMenu");
@@ -86,7 +86,7 @@ function initializeMobileMenu() {
         menu.classList.add("active");
         overlay.classList.add("active");
         document.body.style.overflow = "hidden";
-
+/*  link animation/ slideinleft/slideinup     */
         links.forEach((link, i) => {
             link.style.animation = "none";
             link.style.opacity = "0";
@@ -112,7 +112,7 @@ function initializeMobileMenu() {
         overlay.classList.remove("active");
         document.body.style.overflow = "";
     }
-
+/* menu close/open function       */
     btn.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -129,15 +129,15 @@ function initializeMobileMenu() {
     links.forEach((l) => l.addEventListener("click", closeMenu));
     if (ctaButton) ctaButton.addEventListener("click", closeMenu);
     if (logo) logo.addEventListener("click", closeMenu);
-
+/*      esc to close  */
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && menu.classList.contains("active")) closeMenu();
     });
-
+/*    click outside menu to close    */
     menu.addEventListener("touchmove", (e) => e.stopPropagation());
 }
 
-
+/*    orbs / parrallax    */
 let mouseTimer = null;
 function setupParallaxOrbs() {
     document.addEventListener("mousemove", (e) => {
@@ -158,7 +158,7 @@ function setupParallaxOrbs() {
         }, 16);
     });
 }
-
+/*  cursor effect / glow      */
 function setupCursorGlow() {
     if (window.innerWidth <= 768) return;
 
@@ -188,7 +188,7 @@ function setupCursorGlow() {
     });
 }
 
-
+/*   nav smooth scroll     */
 function setupSmoothAnchors() {
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
@@ -207,7 +207,7 @@ function setupSmoothAnchors() {
         });
     });
 }
-
+/*  nav/shadow on scroll      */
 function setupNavbarShadow() {
     window.addEventListener("scroll", () => {
         const nav = document.querySelector("nav");
@@ -222,7 +222,7 @@ function setupNavbarShadow() {
         }
     });
 }
-
+/*   scroll reveal animation     */
 function setupScrollAnimations() {
     const observer = new IntersectionObserver(
         (entries) => {
@@ -235,7 +235,7 @@ function setupScrollAnimations() {
 
     document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
 }
-
+/*   hover effect/ buttons + cards     */
 function setupButtonHoverGlow() {
     document.querySelectorAll(".btn-primary, .btn-secondary").forEach((button) => {
         button.addEventListener("mouseenter", function () {
@@ -256,7 +256,7 @@ function setupCardGlitchHover() {
         });
     });
 }
-
+/*    form /validate / fake send    */
 
 function setupStudentForm() {
     const form = document.getElementById("studentApplicationForm");
@@ -301,7 +301,7 @@ function setupStudentForm() {
         }, 2000);
     });
 }
-
+/*  faculty dropdown      */
 function setupCustomSelect() {
     const wrapper = document.querySelector('.custom-select[data-target="fakulteti"]');
     const native = document.getElementById("fakulteti");
@@ -401,7 +401,7 @@ function setupCustomSelect() {
         if (e.key === "Escape") close();
     });
 }
-
+/*    boot/ start everything    */
 
 function boot() {
     initTagGlobe();
@@ -426,7 +426,7 @@ if (document.readyState === "loading") {
 } else {
     boot();
 }
-
+/*    resize globe    */
 let globeResizeTimer;
 window.addEventListener("resize", () => {
     clearTimeout(globeResizeTimer);
